@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cyberbird-lingo-v3.4.0-pro';
+const CACHE_NAME = 'cyberbird-lingo-v3.4.1-eon-hub';
 const CORE_ASSETS = [
   './',
   './index.html',
@@ -108,6 +108,7 @@ self.addEventListener('fetch', (e) => {
   const isDynamicDoc =
     e.request.mode === 'navigate' ||
     url.includes('index.html') ||
+    url.includes('cyberbird_upgrade_v34.js') ||
     url.includes('daily_timeline');
 
   if (isDynamicDoc) {

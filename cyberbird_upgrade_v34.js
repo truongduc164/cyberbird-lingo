@@ -1124,6 +1124,16 @@
           background: linear-gradient(135deg, rgba(126, 34, 206, 0.25), rgba(15, 23, 42, 0.92));
           color: #e9d5ff;
         }
+        .v34-hub-chip.eon-factory-link {
+          grid-column: span 2;
+          padding: 8px 10px;
+          font-size: 12px;
+          font-weight: 900;
+          border: 1.5px solid #34d399;
+          background: linear-gradient(135deg, rgba(5, 150, 105, 0.42), rgba(15, 23, 42, 0.96));
+          color: #fde047;
+          box-shadow: 0 4px 14px rgba(16, 185, 129, 0.32);
+        }
         .v34-modal-backdrop {
           position: absolute;
           inset: 0;
@@ -1366,18 +1376,21 @@
     const mistakesCnt = getMistakeList().length;
 
     hub.innerHTML = `
+      <a class="v34-hub-chip eon-factory-link" href="https://truongduc164.github.io/factory-eon/">
+        🏭 VÀO GAME NHÀ MÁY EON (G179 • 17 Khu QA/QC) ➜
+      </a>
+      <button class="v34-hub-chip ${mistakesCnt > 0 ? 'revenge-hot' : ''}" onclick="window._startSrsRevengeFlight()">
+        🩹 Ôn Câu Sai (${mistakesCnt})
+      </button>
+      <a class="v34-hub-chip arcade-link" href="https://truongduc164.github.io/cyberlingo-arcade/">
+        🕹️ Arcade Top 12 →
+      </a>
       <div class="v34-hub-chip" title="Chuỗi ngày bay liên tiếp &amp; Khiên Băng bảo hộ">
         🔥 ${daily.streak || 1} Ngày • ❄️ ${daily.freezes || 0}/3
       </div>
       <div class="v34-hub-chip" title="Kỷ lục cao nhất &amp; Trạng thái Khiên Hộ Mệnh">
         🏆 Kỷ lục: ${highscore} • 🛡️ Khiên
       </div>
-      <button class="v34-hub-chip ${mistakesCnt > 0 ? 'revenge-hot' : ''}" onclick="window._startSrsRevengeFlight()">
-        🩹 Ôn Câu Sai (${mistakesCnt})
-      </button>
-      <a class="v34-hub-chip arcade-link" href="https://truongduc164.github.io/cyberlingo-arcade/">
-        🕹️ Arcade Top 11 →
-      </a>
     `;
     renderSkinPills();
   }
