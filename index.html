@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.3.0 PRO)</title>
+  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.4.0 PRO)</title>
   <meta name="author" content="DEAN OPTIMIZE">
-  <meta name="version" content="3.3.0">
+  <meta name="version" content="3.4.0">
   <meta name="copyright" content="DEAN OPTIMIZE">
   <!-- PWA & iOS Standalone Support -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -820,7 +820,7 @@
 
     <!-- 100% Offline PWA Indicator -->
     <div class="offline-tag">
-      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.3.0 PRO
+      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.4.0 PRO
     </div>
 
     <!-- Main Game Canvas -->
@@ -935,7 +935,7 @@
 
       <div class="dev-credits">
         <span>Kiến tạo & Tối ưu bởi <b>DEAN OPTIMIZE</b></span>
-        <span class="ver-badge">v3.3.0 PRO • AI CLOUD OTA</span>
+        <span class="ver-badge">v3.4.0 PRO • AI CLOUD OTA</span>
       </div>
 
       <div id="how-to-box" class="how-to-box">
@@ -1018,7 +1018,7 @@
         <button class="menu-btn" style="width: 100%;" onclick="returnToMenu()">🏠 ĐỔI CHẾ ĐỘ & CHỦ ĐỀ</button>
       </div>
       <div style="font-size: 11px; color: #64748b; margin-top: 12px;">
-        CyberBird Lingo v3.0 • Engine Architecture by <b>DEAN OPTIMIZE</b>
+        CyberBird Lingo v3.4.0 PRO • Engine Architecture by <b>DEAN OPTIMIZE</b>
       </div>
     </div>
   </div>
@@ -1587,7 +1587,7 @@
       return Boolean(q && q.q_zh);
     }
 
-    const OFFLINE_VAULT_CACHE = 'cyberbird-lingo-v3.3-ai-cloud-ota';
+    const OFFLINE_VAULT_CACHE = 'cyberbird-lingo-v3.4-ai-cloud-ota';
     let offlineVaultSyncing = false;
     let offlineVaultReadyCount = 0;
 
@@ -2515,7 +2515,7 @@
       if (e.target.closest('.top-bar') || 
           e.target.closest('#screen-start') || 
           e.target.closest('#screen-over') || 
-          e.target.closest('#modal-tutorial')) return;
+          e.target.closest('#modal-tutorial') || e.target.closest('#quest-banner') || e.target.closest('.v34-no-flap')) return;
       flap();
     });
 
@@ -3151,5 +3151,7 @@
     refreshDailyTimelineLive();
     requestAnimationFrame(loop);
   </script>
+  <script src="radical_db_v42.js"></script>
+  <script src="cyberbird_upgrade_v34.js"></script>
 </body>
 </html>

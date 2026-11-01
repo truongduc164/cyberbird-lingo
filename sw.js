@@ -1,9 +1,11 @@
-const CACHE_NAME = 'cyberbird-lingo-v3.3.0-pro';
+const CACHE_NAME = 'cyberbird-lingo-v3.4.0-pro';
 const CORE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './daily_timeline_data.js',
+  './radical_db_v42.js',
+  './cyberbird_upgrade_v34.js',
   './daily_timeline.json',
   './icon-192.png',
   './icon-512.png',
