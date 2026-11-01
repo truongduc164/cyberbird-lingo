@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.2.0 PRO)</title>
+  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.3.0 PRO)</title>
   <meta name="author" content="DEAN OPTIMIZE">
-  <meta name="version" content="3.2.0">
+  <meta name="version" content="3.3.0">
   <meta name="copyright" content="DEAN OPTIMIZE">
   <!-- PWA & iOS Standalone Support -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -140,28 +140,29 @@
       box-shadow: 0 0 10px rgba(253, 224, 71, 0.4);
     }
 
-    /* Vocabulary Quest Banner */
+    /* Vocabulary Quest Banner - Optimized v3.3 Mobile */
     .quest-banner {
       position: absolute;
-      top: 56px;
+      top: 52px;
       left: 50%;
       transform: translateX(-50%);
-      width: 92%;
-      max-width: 400px;
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.98));
+      width: 94%;
+      max-width: 420px;
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.94), rgba(15, 23, 42, 0.98));
       border: 2px solid #38bdf8;
       box-shadow: 0 8px 30px rgba(56, 189, 248, 0.3);
       border-radius: 16px;
-      padding: 9px 14px;
+      padding: 8px 12px;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 3px;
       z-index: 15;
       backdrop-filter: blur(12px);
       transition: transform 0.2s;
+      box-sizing: border-box;
     }
     .quest-banner.pulse {
-      transform: translateX(-50%) scale(1.05);
+      transform: translateX(-50%) scale(1.03);
       border-color: #f59e0b;
       box-shadow: 0 8px 35px rgba(245, 158, 11, 0.4);
     }
@@ -176,49 +177,85 @@
       66% { border-color: #06b6d4; }
       100% { border-color: #ec4899; }
     }
-    .quest-info {
+    .quest-header-row {
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
     }
-    .quest-label {
-      font-size: 10px;
-      color: #38bdf8;
-      font-weight: 800;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-    .quest-target {
-      font-size: 20px;
-      font-weight: 900;
-      color: #fff;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
-    }
-    .quest-streak {
+    .quest-streak-inline {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
+      align-items: center;
+      gap: 6px;
     }
-    .streak-badge {
-      font-size: 12px;
+    .quest-streak-inline .streak-badge {
+      font-size: 11px;
       font-weight: 800;
       color: #f59e0b;
       background: rgba(245, 158, 11, 0.15);
       border: 1px solid rgba(245, 158, 11, 0.4);
-      padding: 3px 8px;
-      border-radius: 10px;
+      padding: 2px 7px;
+      border-radius: 8px;
       transition: all 0.2s;
     }
-    .streak-badge.fever {
+    .quest-streak-inline .streak-badge.fever {
       color: #ec4899;
       background: rgba(236, 72, 153, 0.2);
       border-color: #ec4899;
       box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
     }
-    .score-txt {
-      font-size: 18px;
+    .quest-streak-inline .score-txt {
+      font-size: 14.5px;
       font-weight: 900;
       color: #10b981;
-      margin-top: 1px;
+      margin: 0;
+    }
+    .quest-content-row {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .quest-label {
+      font-size: 10.5px;
+      color: #38bdf8;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 220px;
+    }
+    .quest-target {
+      font-size: 18px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1.25;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+      word-break: break-word;
+    }
+    .quest-sub {
+      font-size: 12px;
+      color: #cbd5e1;
+      margin-top: 3px;
+      line-height: 1.35;
+      word-break: break-word;
+      display: block;
+    }
+    .quest-info {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .quest-streak {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .score-txt {
+      font-size: 15px;
+      font-weight: 900;
+      color: #10b981;
     }
 
     /* Start & Game Over Screen Overlay */
@@ -599,10 +636,10 @@
       align-items: center;
       gap: 6px;
     }
-    /* Offline indicator */
+    /* Offline indicator - iPhone Safe Area */
     .offline-tag {
       position: absolute;
-      bottom: 10px;
+      bottom: calc(12px + env(safe-area-inset-bottom, 0px));
       left: 50%;
       transform: translateX(-50%);
       font-size: 10px;
@@ -616,6 +653,7 @@
       align-items: center;
       gap: 6px;
       z-index: 10;
+      white-space: nowrap;
     }
     .offline-dot {
       width: 5px;
@@ -767,20 +805,22 @@
 
     <!-- Active Vocabulary / Dialogue Target Quest -->
     <div id="quest-banner" class="quest-banner">
-      <div class="quest-info" style="max-width: 275px;">
+      <div class="quest-header-row">
         <span id="quest-speaker" class="quest-label">💬 HỘI THOẠI XƯỞNG:</span>
-        <span id="quest-target" class="quest-target" style="font-size: 18.5px; line-height: 1.25; font-weight: 900;">今天能按时交货吗？</span>
-        <span id="quest-sub" style="font-size: 11.5px; color: #cbd5e1; margin-top: 2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block;">Nghĩa: Hôm nay có giao hàng đúng hạn không?</span>
+        <div class="quest-streak-inline">
+          <span id="streak-badge" class="streak-badge">🔥 Chuỗi: 0</span>
+          <span id="score-val" class="score-txt">0 pts</span>
+        </div>
       </div>
-      <div class="quest-streak">
-        <span id="streak-badge" class="streak-badge">🔥 Chuỗi: 0</span>
-        <span id="score-val" class="score-txt">0 pts</span>
+      <div class="quest-content-row">
+        <span id="quest-target" class="quest-target">今天能按时交货吗？</span>
+        <span id="quest-sub" class="quest-sub">Nghĩa: Hôm nay có giao hàng đúng hạn không?</span>
       </div>
     </div>
 
     <!-- 100% Offline PWA Indicator -->
     <div class="offline-tag">
-      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.2.0 PRO
+      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.3.0 PRO
     </div>
 
     <!-- Main Game Canvas -->
@@ -895,7 +935,7 @@
 
       <div class="dev-credits">
         <span>Kiến tạo & Tối ưu bởi <b>DEAN OPTIMIZE</b></span>
-        <span class="ver-badge">v3.2.0 PRO • AI CLOUD OTA</span>
+        <span class="ver-badge">v3.3.0 PRO • AI CLOUD OTA</span>
       </div>
 
       <div id="how-to-box" class="how-to-box">
@@ -1645,23 +1685,56 @@
       else currentFontSizePx = 16.5; // Large (default)
     }
 
+    // Physics variables (Adaptive Slow-Mo support)
+    let basePipeSpeed = 2.1;
+    let baseGravity = 0.38;
+    let baseJump = -6.9;
+    let baseGateGap = 240;
+
+    let pipeSpeed = 2.1;
+    let gravity = 0.38;
+    let jump = -6.9;
+    let gateGap = 240;
+
     function applyDifficultySettings() {
       if (currentDifficulty === 'easy') {
-        pipeSpeed = 1.75;
-        gateGap = 260;
-        gravity = 0.34;
-        jump = -6.5;
+        basePipeSpeed = 1.75;
+        baseGateGap = 260;
+        baseGravity = 0.34;
+        baseJump = -6.5;
       } else if (currentDifficulty === 'hard') {
-        pipeSpeed = 2.85;
-        gateGap = 210;
-        gravity = 0.44;
-        jump = -7.3;
+        basePipeSpeed = 2.85;
+        baseGateGap = 210;
+        baseGravity = 0.44;
+        baseJump = -7.3;
       } else { // normal
-        pipeSpeed = 2.2;
-        gateGap = 235;
-        gravity = 0.38;
-        jump = -6.9;
+        basePipeSpeed = 2.1;
+        baseGateGap = 240;
+        baseGravity = 0.38;
+        baseJump = -6.9;
       }
+      pipeSpeed = basePipeSpeed;
+      gateGap = baseGateGap;
+      gravity = baseGravity;
+      jump = baseJump;
+    }
+
+    function isLongOrDialogue(q) {
+      if (!q) return false;
+      if (isDialogueItem(q)) return true;
+      if (q.q_zh && q.q_zh.length > 8) return true;
+      if (q.correct_zh && q.correct_zh.length > 8) return true;
+      if (q.zh && q.zh.length > 8) return true;
+      return false;
+    }
+
+    function getNextUpcomingPipe() {
+      for (const p of pipes) {
+        if (!p.passed && p.x + p.w + 40 >= bird.x) {
+          return p;
+        }
+      }
+      return null;
     }
 
     function rebuildTimelinePool() {
@@ -2406,10 +2479,6 @@
     // Bird & Physics (Tuned for Relaxed Learning & Cyber Glide)
     let bird = { x: 75, y: 360, vy: 0, r: 18, angle: 0 };
     let pipes = [];
-    let gravity = 0.38;   // Rơi êm ái hơn 15% để kịp đọc chữ Hán
-    let jump = -6.9;      // Cú đập cánh mềm, kiểm soát độ cao cực dễ
-    let gateGap = 240;    // Cổng mở rộng 240px lượn cực thoáng
-    let pipeSpeed = 2.1;  // Tốc độ lướt vừa tầm mắt
 
     function flap() {
       if (gameState === 'playing') {
@@ -2674,6 +2743,66 @@
     ];
     let cityScroll = 0;
 
+    // Multi-line intelligent auto-wrap for portal gates (v3.3 Mobile Enhancement)
+    function renderPortalText(ctx, prefix, fullLabel, centerX, centerY, maxW, maxH) {
+      ctx.save();
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+      ctx.shadowBlur = 4;
+      ctx.fillStyle = '#ffffff';
+
+      const cleanText = fullLabel ? fullLabel.trim() : '';
+      let lines = [];
+      let fontSize = currentFontSizePx;
+
+      if (cleanText.includes(' • ')) {
+        const parts = cleanText.split(' • ');
+        lines = [parts[0], parts[1]];
+        fontSize = Math.min(fontSize, 14.5);
+      } else if (cleanText.includes(' (')) {
+        if (cleanText.length <= 15) {
+          lines = [cleanText];
+        } else {
+          const pIdx = cleanText.indexOf(' (');
+          lines = [cleanText.slice(0, pIdx), cleanText.slice(pIdx).trim()];
+          fontSize = Math.min(fontSize, 14.5);
+        }
+      } else if (cleanText.length > 9) {
+        // Natural punctuation split first: ， , ； ; 、
+        const punctMatch = cleanText.match(/^(.*?)([，,；;、])(.*)$/);
+        if (punctMatch && punctMatch[1].length >= 3 && punctMatch[3].length >= 3) {
+          lines = [punctMatch[1] + punctMatch[2], punctMatch[3]];
+        } else if (cleanText.includes(' ') && cleanText.length > 14) {
+          const words = cleanText.split(' ');
+          let midIdx = Math.floor(words.length / 2);
+          lines = [words.slice(0, midIdx).join(' '), words.slice(midIdx).join(' ')];
+        } else {
+          const mid = Math.ceil(cleanText.length / 2);
+          lines = [cleanText.slice(0, mid), cleanText.slice(mid)];
+        }
+        fontSize = Math.min(fontSize, 14.5);
+      } else {
+        lines = [cleanText];
+      }
+
+      ctx.font = `bold ${fontSize}px system-ui, -apple-system, sans-serif`;
+
+      if (lines.length === 1) {
+        ctx.fillText(`${prefix} ${lines[0]}`, centerX, centerY, maxW);
+      } else if (lines.length === 2) {
+        const lineSpacing = fontSize * 1.3;
+        ctx.fillText(`${prefix} ${lines[0]}`, centerX, centerY - lineSpacing * 0.5, maxW);
+        ctx.fillText(lines[1], centerX, centerY + lineSpacing * 0.55, maxW);
+      } else {
+        const lineSpacing = fontSize * 1.25;
+        ctx.fillText(`${prefix} ${lines[0]}`, centerX, centerY - lineSpacing, maxW);
+        ctx.fillText(lines[1], centerX, centerY, maxW);
+        ctx.fillText(lines[2], centerX, centerY + lineSpacing, maxW);
+      }
+      ctx.restore();
+    }
+
     // Main Game Loop (60 FPS)
     function loop() {
       ctx.save();
@@ -2735,6 +2864,19 @@
 
       // 4. Update & Draw Game Entities
       if (gameState === 'playing') {
+        // Adaptive Slow-Mo Physics for Long Dialogue Questions (v3.3 Mobile Enhancement)
+        const nextPipe = getNextUpcomingPipe();
+        const activeQ = nextPipe ? nextPipe.question : currentQuestion;
+        const isLongTarget = isLongOrDialogue(activeQ);
+
+        const targetSpeed = isLongTarget ? (basePipeSpeed * 0.65) : basePipeSpeed;
+        const targetGravity = isLongTarget ? (baseGravity * 0.78) : baseGravity;
+        const targetJump = isLongTarget ? (baseJump * 0.88) : baseJump;
+
+        pipeSpeed += (targetSpeed - pipeSpeed) * 0.08;
+        gravity += (targetGravity - gravity) * 0.08;
+        jump += (targetJump - jump) * 0.08;
+
         bird.vy += gravity;
         bird.y += bird.vy;
         bird.angle = Math.min(Math.PI / 4, Math.max(-Math.PI / 4, (bird.vy / 10)));
@@ -2744,13 +2886,15 @@
           gameOver(currentQuestion);
         }
 
-        // Distance-based gate spawning (uniform spacing regardless of screen refresh rate)
+        // Distance-based gate spawning with dynamic spacing for long dialogues
         frameCount++;
         if (pipes.length === 0) {
           spawnGate();
         } else {
           const lastPipe = pipes[pipes.length - 1];
-          const minSpacing = (currentDifficulty === 'easy') ? 340 : ((currentDifficulty === 'hard') ? 280 : 310);
+          const isDlgSpacing = isLongOrDialogue(lastPipe.question) || isLongOrDialogue(currentQuestion);
+          const baseSpacing = (currentDifficulty === 'easy') ? 340 : ((currentDifficulty === 'hard') ? 280 : 310);
+          const minSpacing = isDlgSpacing ? 430 : baseSpacing;
           if (canvas.width + 30 - lastPipe.x >= minSpacing) {
             spawnGate();
           }
@@ -2807,14 +2951,8 @@
           ctx.fill();
           ctx.stroke();
 
-          // Upper Lane Text (Crisp, high-contrast, scalable font + auto-fit maxWidth!)
-          ctx.fillStyle = '#ffffff';
-          ctx.font = `bold ${currentFontSizePx}px system-ui, -apple-system, sans-serif`;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-          ctx.shadowBlur = 4;
-          ctx.fillText(`▲ ${p.topLabel}`, tunnelX + tunnelW / 2, upperCenterY, tunnelW - 14);
+          // Upper Lane Text (Crisp multi-line auto-wrap)
+          renderPortalText(ctx, '▲', p.topLabel, tunnelX + tunnelW / 2, upperCenterY, tunnelW - 14, tunnelH);
           ctx.restore();
 
           // 3. LOWER CYBER PORTAL (LÀN DƯỚI)
@@ -2832,14 +2970,8 @@
           ctx.fill();
           ctx.stroke();
 
-          // Lower Lane Text (Crisp, high-contrast, scalable font + auto-fit maxWidth!)
-          ctx.fillStyle = '#ffffff';
-          ctx.font = `bold ${currentFontSizePx}px system-ui, -apple-system, sans-serif`;
-          ctx.textAlign = 'center';
-          ctx.textBaseline = 'middle';
-          ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-          ctx.shadowBlur = 4;
-          ctx.fillText(`▼ ${p.botLabel}`, tunnelX + tunnelW / 2, lowerCenterY, tunnelW - 14);
+          // Lower Lane Text (Crisp multi-line auto-wrap)
+          renderPortalText(ctx, '▼', p.botLabel, tunnelX + tunnelW / 2, lowerCenterY, tunnelW - 14, tunnelH);
           ctx.restore();
 
           // 4. Laser Divider between Upper and Lower Portals (at midY)

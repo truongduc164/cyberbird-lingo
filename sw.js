@@ -1,4 +1,4 @@
-const CACHE_NAME = 'cyberbird-lingo-v3.3-ai-cloud-ota';
+const CACHE_NAME = 'cyberbird-lingo-v3.3.0-pro';
 const CORE_ASSETS = [
   './',
   './index.html',
