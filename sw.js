@@ -1,9 +1,11 @@
-const CACHE_NAME = 'cyberbird-lingo-v3.4.1-eon-hub';
+const CACHE_NAME = 'cyberbird-lingo-v3.6.0-paint-export-listen';
 const CORE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './daily_timeline_data.js',
+  './lab_7qc_mastery_data.js',
+  './lab_7qc_modules.json',
   './radical_db_v42.js',
   './cyberbird_upgrade_v34.js',
   './daily_timeline.json',
@@ -109,6 +111,8 @@ self.addEventListener('fetch', (e) => {
     e.request.mode === 'navigate' ||
     url.includes('index.html') ||
     url.includes('cyberbird_upgrade_v34.js') ||
+    url.includes('lab_7qc_mastery_data.js') ||
+    url.includes('lab_7qc_modules.json') ||
     url.includes('daily_timeline');
 
   if (isDynamicDoc) {

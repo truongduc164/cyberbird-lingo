@@ -1,16 +1,16 @@
 /**
- * CYBERBIRD LINGO PRO v3.4.0 — AUTO-CRUISE DIALOGUE, ENERGY SHIELD, RADICAL DOJO & QC SKINS
- * ==========================================================================================
- * Nâng cấp toàn diện v3.4.0 cho CyberBird Lingo:
+ * CYBERBIRD LINGO PRO v3.6.0 — END-TO-END HELMET PRODUCTION LINE (6 MODULES) & AUDIO LISTENING DOJO
+ * ==================================================================================================
+ * Nâng cấp toàn diện v3.6.0 cho CyberBird Lingo:
  *  1. 🎯 Đồng bộ Cổng-Banner 100% (Fix lỗi đổi câu hỏi sớm trước khi chim qua cổng) + Chạm Banner nghe lại (0 giật cánh)
- *  2. 🛸 Phương Án B Hoàn Chỉnh: Auto-Cruise 1.4s khi đổi câu dài + Ngắt 2-3 dòng + Tô Vàng 50+ Từ Khóa QC Nhà Xưởng
+ *  2. 🛸 Phương Án B Hoàn Chỉnh: Auto-Cruise 1.4s khi đổi câu dài + Ngắt 2-3 dòng + Tô Vàng 120+ Từ Khóa QC Nhà Xưởng
  *  3. 🛡️ Khiên Hộ Mệnh Năng Lượng (Cyber Energy Shield — Đỡ 1 lần va chạm / chọn nhầm cổng khó, nạp lại mỗi Combo 5)
  *  4. 🔥 Chuỗi Lửa Thiêng Hàng Ngày + ❄️ Khiên Băng Bảo Hộ + 🩹 Kho Phục Thù Câu Sai (SRS Mistake Vault)
- *  5. 🧩 Chiết Tự Bộ Thủ 160+ Chữ & ✍️ Bảng Tập Viết Điền Tự Cách ngay trên Flashcard GameOver
- *  6. 🎨 Xưởng Skin Chiến Điểu Nhà Máy (🐦 Neon, 👷 Kỹ Sư Mũ Bảo Hộ Vàng QC, 🔥 Phượng Hoàng, 🤖 Mecha Drone)
- *  7. 🎵 Âm Thanh Combo Thăng Cung (Pentatonic Pitch-Ascending) + 📱 Auto-Pause khi khóa màn hình / chuyển qua Telegram
+ *  5. 🧩 Chiết Tự Bộ Thủ 600+ Chữ & ✍️ Bảng Tập Viết Điền Tự Cách ngay trên Flashcard GameOver & Dojo
+ *  6. 🎨 Xưởng Skin Chiến Điểu Nhà Máy + 6 Mô-đun Dây Chuyền Mũ Bảo Hiểm Khép Kín (110 Mục Tứ Ngữ: M1 Lab -> M6 Xuất Cont 45'HC)
+ *  7. 🎧 Đấu Trường Luyện Nghe Phản Xạ Xưởng (Blind Audio Listening & Dictation Drills — Ẩn chữ nghe mù CN/EN, 0.75x/1.0x, SRS)
  *
- * Developed by DEAN OPTIMIZE × Quân Sư Khổng Minh — 01/11/2026
+ * Developed by DEAN OPTIMIZE × Quân Sư Khổng Minh — 11/11/2026
  */
 
 (function () {
@@ -20,7 +20,8 @@
     DAILY: 'cyberbird_daily_meta_v34',
     SRS: 'cyberbird_srs_vault_v34',
     CRUISE: 'cyberbird_autocr_v34',
-    SKIN: 'cyberbird_skin_v34'
+    SKIN: 'cyberbird_skin_v34',
+    LISTEN: 'cyberbird_listen_stats_v36'
   };
 
   // Safe localStorage helpers
@@ -174,11 +175,19 @@
     { id: 'mecha', label: '🤖 Drone TĐH', unlockPts: 80 }
   ];
 
-  // 55+ Core Factory / QC / Action Chinese Keywords to highlight in Cyber Gold (#fde047)
+  // 125+ Core Factory / Helmet Lab / Robot / Paint / EPS / Export Cont / 7QC Keywords to highlight in Cyber Gold (#fde047)
   const QC_HIGHLIGHT_KEYWORDS = [
+    '一角三棱六面', '人机料法环测', '超声波焊接', '容积利用率', '二维码追溯', '正压水帘柜', '蒸汽成型',
+    '冲击吸收', '防脱测试', '屈服强度', '佩戴装置', '发泡内胆', '路缘石砧', '油漆粘度', '橘皮不良',
+    '水标贴花', '亮光清漆', '插扣耐久', '外箱跌落', '织带铆钉', '离子风枪', '七点安全', '百格测试',
+    '原点复位', '安全光幕', '急停按钮', '吸盘治具', '成型周期', '首件检验', '围堵措施', '根本原因',
+    '红牌隔离', '半球砧', '机械手', '分层法', '柏拉图', '鱼骨图', '防呆法', '预发泡', '结合度',
+    '附着力', '光泽度', '色差仪', '干燥剂', '检重秤', '五千次', 'UV固化炉', 'ISTA-1A',
+    '两百五十G', '三百G', '二十到五十牛', '20N-50N', 'CPSC', 'EN1078', 'GB 24429', 'MIPS',
+    '40HC', '45HC', 'AQL 2.5', 'Ford Cup', '1.0mm', '5B', '秒杯', '尘点', '颗粒', '熟化', '哑光', '铅封',
     '限度样', '供应商', '不合格', '流水线', '缓冲层', '通风孔', '下巴带', '注塑机',
     '核对', '对标', '确认', '合格', '返工', '报废', '暂停', '停机', '全检', '抽检',
-    '复检', '隔离', '更换', '调整', '记录', '通知', '汇报', '签字', '测试', '标准',
+    '复检', '隔离', '更换', '调整', '记录', '通知', '汇报', '签字', '双签', '测试', '标准',
     '样品', '异常', '安全', '头盔', '原因', '检查', '立即', '马上', '严禁', '必须',
     '先', '禁止', '不能', '不用', '直接', '全部', '随便', '忽略', '隐瞒', '继续生产'
   ].sort((a, b) => b.length - a.length);
@@ -235,11 +244,14 @@
       }
       questTarget.textContent = (currentMode === 'en' && q.q_en) ? q.q_en : q.q_zh;
       if (questSub) questSub.textContent = `Nghĩa: ${q.q_vi || ''}`;
-      if (triggerVoice) playDialogueAudio(q.q_audio);
+      if (triggerVoice) {
+        const dlgVoice = (currentMode === 'en' && q.q_audio_en) ? q.q_audio_en : q.q_audio;
+        playDialogueAudio(dlgVoice);
+      }
     } else {
       const tag = isSrsRevengeRun
         ? '🩹 PHỤC THÙ TỪ HAY SAI'
-        : (q.cat === 'daily' ? '📅 NHẬT KÝ NGÀY' : '🎯 BAY VÀO TỪ');
+        : (q.cat === 'lab7qc' ? '🏭 LAB & 7QC THỰC CHIẾN' : (q.cat === 'daily' ? '📅 NHẬT KÝ NGÀY' : '🎯 BAY VÀO TỪ'));
       if (questSpeaker) {
         questSpeaker.innerHTML = `${tag}: <span class="v34-replay-pill">🔊 Nghe lại</span>`;
       }
@@ -254,8 +266,9 @@
     questBanner.classList.add('pulse');
     setTimeout(() => questBanner.classList.remove('pulse'), 220);
     if (isDialogueItem(currentQuestion)) {
-      if (currentQuestion.q_audio) playDialogueAudio(currentQuestion.q_audio);
-      else speakText(currentQuestion.q_zh, 'zh-CN');
+      const p = (currentMode === 'en' && currentQuestion.q_audio_en) ? currentQuestion.q_audio_en : currentQuestion.q_audio;
+      if (p) playDialogueAudio(p);
+      else speakText((currentMode === 'en' && currentQuestion.q_en) ? currentQuestion.q_en : currentQuestion.q_zh, currentMode === 'en' ? 'en-US' : 'zh-CN');
     } else {
       playWordAudio(currentQuestion);
     }
@@ -1041,12 +1054,41 @@
   function updateGameOverRadicalButton(q) {
     const fcBox = document.getElementById('flashcard-box');
     if (!fcBox) return;
+
+    // Feynman 80/20 Engineering Memory Hook on Flashcard
+    let feynBox = document.getElementById('v35-fc-feynman-box');
+    if (!feynBox) {
+      feynBox = document.createElement('div');
+      feynBox.id = 'v35-fc-feynman-box';
+      feynBox.className = 'v34-mnemonic-box';
+      feynBox.style.cssText = 'margin-top:8px;font-size:11px;text-align:left;';
+      const replayOrig = fcBox.querySelector('.replay-voice-btn');
+      if (replayOrig && replayOrig.parentNode) {
+        replayOrig.parentNode.insertBefore(feynBox, replayOrig);
+      } else {
+        fcBox.appendChild(feynBox);
+      }
+    }
+    if (q && q.feynman_hook) {
+      feynBox.style.display = 'block';
+      feynBox.textContent = `💡 Feynman 80/20: ${q.feynman_hook}`;
+    } else {
+      feynBox.style.display = 'none';
+    }
+
     let btn = document.getElementById('v34-fc-radical-btn');
+    let enBtn = document.getElementById('v35-fc-en-voice-btn');
     if (!btn) {
       btn = document.createElement('button');
       btn.id = 'v34-fc-radical-btn';
       btn.className = 'replay-voice-btn v34-no-flap';
-      btn.style.cssText = 'margin-left:6px;background:rgba(168,85,247,0.22);border-color:#c084fc;color:#f3e8ff;';
+      btn.style.cssText = 'background:rgba(168,85,247,0.22);border-color:#c084fc;color:#f3e8ff;margin-top:0;';
+
+      enBtn = document.createElement('button');
+      enBtn.id = 'v35-fc-en-voice-btn';
+      enBtn.className = 'replay-voice-btn v34-no-flap';
+      enBtn.style.cssText = 'background:rgba(16,185,129,0.2);border-color:#34d399;color:#a7f3d0;margin-top:0;';
+
       const replayBtn = fcBox.querySelector('.replay-voice-btn');
       if (replayBtn) {
         const row = document.createElement('div');
@@ -1054,11 +1096,23 @@
         replayBtn.style.marginTop = '0';
         replayBtn.parentNode.insertBefore(row, replayBtn);
         row.appendChild(replayBtn);
+        row.appendChild(enBtn);
         row.appendChild(btn);
       } else {
+        fcBox.appendChild(enBtn);
         fcBox.appendChild(btn);
       }
     }
+
+    const enPath = q ? (isDialogueItem(q) ? q.a_audio_en : q.audio_en) : '';
+    if (enBtn) {
+      enBtn.style.display = enPath ? 'inline-flex' : 'none';
+      enBtn.innerHTML = '🇬🇧 Nghe Anh (Aria)';
+      enBtn.onclick = () => {
+        if (typeof playSmartAudioPath === 'function') playSmartAudioPath(enPath, q.correct_en || q.en || '');
+      };
+    }
+
     const zhChars = extractQuestionHanziString(q);
     const hasZh = /[\u4e00-\u9fff]/.test(zhChars);
     btn.style.display = hasZh ? 'inline-flex' : 'none';
@@ -1247,6 +1301,72 @@
           border: none;
           color: #fff;
         }
+        /* v3.6.0 Audio Listening & Dictation Dojo Styles */
+        @keyframes v36WavePulse {
+          0%, 100% { transform: scaleY(0.28); opacity: 0.55; }
+          50% { transform: scaleY(1); opacity: 1; }
+        }
+        .v36-blind-stage {
+          background: linear-gradient(145deg, rgba(8, 47, 73, 0.72), rgba(15, 23, 42, 0.95));
+          border: 1.5px solid rgba(56, 189, 248, 0.55);
+          border-radius: 14px;
+          padding: 10px 11px;
+          margin-bottom: 8px;
+          box-shadow: inset 0 0 18px rgba(14, 165, 233, 0.16);
+        }
+        .v36-wave-row {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+          height: 30px;
+          margin: 7px 0;
+        }
+        .v36-wave-bar {
+          width: 4.5px;
+          height: 24px;
+          border-radius: 99px;
+          background: linear-gradient(180deg, #fde047, #38bdf8, #10b981);
+          transform: scaleY(0.32);
+          opacity: 0.5;
+          transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .v36-wave-row.playing .v36-wave-bar {
+          animation: v36WavePulse 0.68s ease-in-out infinite;
+          opacity: 1;
+        }
+        .v36-wave-row.playing .v36-wave-bar:nth-child(2n) { animation-delay: 0.12s; }
+        .v36-wave-row.playing .v36-wave-bar:nth-child(3n) { animation-delay: 0.24s; }
+        .v36-wave-row.playing .v36-wave-bar:nth-child(4n) { animation-delay: 0.36s; }
+        .v36-speed-btn {
+          flex: 1;
+          padding: 7px 8px;
+          border-radius: 10px;
+          border: 1.5px solid rgba(56, 189, 248, 0.55);
+          background: rgba(2, 132, 199, 0.26);
+          color: #e0f2fe;
+          font-size: 11px;
+          font-weight: 900;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 4px;
+        }
+        .v36-speed-btn.slow {
+          border-color: rgba(250, 204, 21, 0.55);
+          background: rgba(217, 119, 6, 0.22);
+          color: #fef08a;
+        }
+        .v36-speed-btn:active { transform: scale(0.95); }
+        .v36-quad-box {
+          background: rgba(15, 23, 42, 0.92);
+          border: 1px solid rgba(56, 189, 248, 0.32);
+          border-radius: 10px;
+          padding: 7px 9px;
+          margin-top: 5px;
+          line-height: 1.42;
+        }
       `;
       document.head.appendChild(st);
     }
@@ -1369,6 +1489,948 @@
     }).join('');
   }
 
+  // =========================================================================
+  // 10. 🧪 INTERACTIVE LAB & 7QC QUIZ DRILLS DOJO (6 MODULES • 110 ITEMS)
+  // =========================================================================
+  let _labQuizModule = 'all';
+  let _labQuizPass = 0;
+  let _labQuizTotal = 0;
+  let _labQuizStreak = 0;
+  let _labQuizCurrent = null;
+  let _labQuizAnswered = false;
+
+  const LAB_MOD_LABELS = {
+    m1_helmet_lab: '🪖 M1: LAB MŨ & LỰC KÉO',
+    m2_robot_molding: '🤖 M2: ROBOT & ÉP PHUN',
+    m3_7qc_8d: '📊 M3: 7QC & 8D CAPA',
+    m4_floor_dialogues: '🗣️ M4: HỘI THOẠI QUẢN ĐỐC',
+    m5_paint_decal_eps: '🎨 M5: SƠN, TEM NƯỚC & EPS',
+    m6_assembly_export_cont: '📦 M6: LẮP RÁP & XUẤT CONT'
+  };
+
+  function getLabExpansionPool(modFilter) {
+    const exp = window.CYBERBIRD_LAB7QC_EXPANSION || { vocab: [], dialogues: [] };
+    const vList = exp.vocab || [];
+    const dList = exp.dialogues || [];
+    if (modFilter === 'm4_floor_dialogues') return [...dList];
+    if (modFilter && modFilter !== 'all') {
+      const mV = vList.filter((v) => v.module === modFilter);
+      const mD = dList.filter((d) => d.module === modFilter);
+      return [...mV, ...mD];
+    }
+    return [...vList, ...dList];
+  }
+
+  function shuffleArr(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a;
+  }
+
+  function buildLabQuizQuestion(modFilter) {
+    const exp = window.CYBERBIRD_LAB7QC_EXPANSION || { vocab: [], dialogues: [] };
+    const pool = getLabExpansionPool(modFilter);
+    if (!pool.length) return null;
+    const target = pool[Math.floor(Math.random() * pool.length)];
+
+    if (isDialogueItem(target)) {
+      const otherDlgs = (exp.dialogues || []).filter((d) => d.q_zh !== target.q_zh);
+      const extraWrong = shuffleArr(otherDlgs).slice(0, 2).map((d) => ({
+        zh: d.correct_zh,
+        sub: `${d.correct_vi} • ${d.correct_en || ''}`,
+        correct: false
+      }));
+      const options = shuffleArr([
+        {
+          zh: target.correct_zh,
+          sub: `${target.correct_vi} • ${target.correct_en || ''}`,
+          correct: true
+        },
+        {
+          zh: target.wrong_zh,
+          sub: `${target.wrong_vi} • ${target.wrong_en || ''}`,
+          correct: false
+        },
+        ...extraWrong
+      ]);
+      return {
+        isDlg: true,
+        item: target,
+        badge: target.speaker || LAB_MOD_LABELS[target.module] || '🗣️ HỘI THOẠI QUẢN ĐỐC',
+        promptMain: target.q_zh,
+        promptPinyin: target.q_pinyin || '',
+        promptSub: `🇻🇳 ${target.q_vi}\n🇬🇧 ${target.q_en || ''}`,
+        zhAudio: target.q_audio,
+        enAudio: target.q_audio_en,
+        ansZhAudio: target.a_audio,
+        ansEnAudio: target.a_audio_en,
+        options
+      };
+    }
+
+    const sameMod = (exp.vocab || []).filter((v) => v.zh !== target.zh && v.module === target.module);
+    const backupV = (exp.vocab || []).filter((v) => v.zh !== target.zh);
+    const candPool = sameMod.length >= 2 ? sameMod : backupV;
+    const pickedOthers = shuffleArr(candPool).slice(0, 2).map((v) => ({
+      zh: `${v.zh} (${v.pinyin})`,
+      sub: `${v.en}`,
+      correct: false
+    }));
+
+    const options = shuffleArr([
+      {
+        zh: `${target.zh} (${target.pinyin})`,
+        sub: `${target.en}`,
+        correct: true
+      },
+      {
+        zh: `${target.dist_zh} (${target.dist_pinyin})`,
+        sub: `${target.dist_en}`,
+        correct: false
+      },
+      ...pickedOthers
+    ]);
+
+    return {
+      isDlg: false,
+      item: target,
+      badge: LAB_MOD_LABELS[target.module] || '🏭 LAB & 7QC THỰC CHIẾN',
+      promptMain: target.vi,
+      promptPinyin: `🇬🇧 ${target.en}`,
+      promptSub: 'Chọn đúng thuật ngữ Hán tự + Pinyin + Chuẩn kỹ thuật:',
+      zhAudio: target.audio,
+      enAudio: target.audio_en,
+      ansZhAudio: target.audio,
+      ansEnAudio: target.audio_en,
+      options
+    };
+  }
+
+  function openLabQuizDrillsModal(initialModule) {
+    if (initialModule) _labQuizModule = initialModule;
+    else if (typeof selectedLab7qcModule === 'string' && selectedLab7qcModule) {
+      _labQuizModule = selectedLab7qcModule;
+    }
+
+    document.getElementById('v36-listen-dojo-modal')?.remove();
+    document.getElementById('v35-lab-quiz-modal')?.remove();
+    const modal = document.createElement('div');
+    modal.id = 'v35-lab-quiz-modal';
+    modal.className = 'v34-modal-backdrop v34-no-flap';
+    modal.style.cssText = 'z-index:65;padding:10px;overflow-y:auto;';
+    modal.innerHTML = `
+      <div class="v34-modal-card" style="max-width:382px;max-height:92dvh;overflow-y:auto;text-align:left;border-color:#fde047;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;">
+          <span style="font-size:12px;font-weight:900;color:#fde047;">🧪 ĐẤU TRƯỜNG LAB MŨ &amp; DÂY CHUYỀN (6 MÔ-ĐUN)</span>
+          <div style="display:flex;gap:4px;">
+            <button class="v34-mini-btn" style="border-color:#38bdf8;color:#7dd3fc;font-size:10px;padding:3px 7px;" onclick="window.openAudioListeningDojoModal(_labQuizModule)">🎧 Nghe Mù</button>
+            <button class="v34-mini-btn" style="border-color:#f43f5e;color:#fecdd3;background:rgba(225,29,72,0.2);font-size:10px;padding:3px 7px;" onclick="window._closeLabQuizModal()">✕</button>
+          </div>
+        </div>
+        <div id="v35-lq-scorebar" style="display:flex;justify-content:space-between;font-size:11px;font-weight:800;color:#34d399;background:rgba(15,23,42,0.9);padding:5px 9px;border-radius:9px;border:1px solid rgba(52,211,153,0.35);margin-bottom:7px;"></div>
+        <div id="v35-lq-modpills" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;"></div>
+        <div id="v35-lq-body"></div>
+      </div>
+    `;
+    document.getElementById('game-container')?.appendChild(modal);
+    nextLabQuizQuestion();
+  }
+
+  function renderLabQuizScoreAndMods() {
+    const sb = document.getElementById('v35-lq-scorebar');
+    if (sb) {
+      sb.innerHTML = `<span>✅ Lab Pass: ${_labQuizPass}/${_labQuizTotal}</span><span style="color:#fde047;">🔥 Chuỗi chuẩn: ${_labQuizStreak}</span>`;
+    }
+    const mp = document.getElementById('v35-lq-modpills');
+    if (mp) {
+      const mods = [
+        { id: 'all', label: '🌟 Tất Cả (110)' },
+        { id: 'm1_helmet_lab', label: '🪖 M1: Lab (18)' },
+        { id: 'm2_robot_molding', label: '🤖 M2: Robot (16)' },
+        { id: 'm3_7qc_8d', label: '📊 M3: 7QC (16)' },
+        { id: 'm4_floor_dialogues', label: '🗣️ M4: Hội Thoại (26)' },
+        { id: 'm5_paint_decal_eps', label: '🎨 M5: Sơn/Tem/EPS (23)' },
+        { id: 'm6_assembly_export_cont', label: '📦 M6: Ráp/Cont (21)' }
+      ];
+      mp.innerHTML = mods.map((m) => `
+        <button class="opt-btn ${_labQuizModule === m.id ? 'active' : ''}" style="font-size:9.8px;padding:3px 6px;" onclick="window._switchLabQuizMod('${m.id}')">${m.label}</button>
+      `).join('');
+    }
+  }
+
+  function nextLabQuizQuestion() {
+    _labQuizAnswered = false;
+    _labQuizCurrent = buildLabQuizQuestion(_labQuizModule);
+    renderLabQuizScoreAndMods();
+    const body = document.getElementById('v35-lq-body');
+    if (!body || !_labQuizCurrent) return;
+
+    const q = _labQuizCurrent;
+    body.innerHTML = `
+      <div style="background:rgba(30,41,59,0.88);border:1px solid rgba(56,189,248,0.4);border-radius:12px;padding:9px 11px;margin-bottom:8px;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:4px;margin-bottom:4px;">
+          <span style="font-size:10px;font-weight:900;color:#38bdf8;">${q.badge}</span>
+          <div style="display:flex;gap:4px;">
+            <button class="v34-mini-btn" style="font-size:10px;padding:2px 6px;" onclick="window._playLabQuizVoice('zh')">🇨🇳 Xiaoxiao</button>
+            <button class="v34-mini-btn" style="font-size:10px;padding:2px 6px;border-color:#34d399;color:#a7f3d0;" onclick="window._playLabQuizVoice('en')">🇬🇧 Aria</button>
+          </div>
+        </div>
+        <div style="font-size:15.5px;font-weight:900;color:#fff;line-height:1.3;">${q.promptMain}</div>
+        <div style="font-size:11.5px;color:#fde047;font-weight:700;margin-top:3px;">${q.promptPinyin}</div>
+        <div style="font-size:11px;color:#cbd5e1;margin-top:3px;white-space:pre-line;line-height:1.35;">${q.promptSub}</div>
+      </div>
+      <div id="v35-lq-opts" style="display:flex;flex-direction:column;gap:6px;"></div>
+      <div id="v35-lq-feedback" class="hidden" style="margin-top:8px;"></div>
+    `;
+
+    const optsBox = document.getElementById('v35-lq-opts');
+    const letters = ['A', 'B', 'C', 'D'];
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'v35-lq-opt-btn';
+      btn.style.cssText = 'width:100%;text-align:left;padding:8px 10px;border-radius:11px;border:1.5px solid rgba(148,163,184,0.32);background:rgba(15,23,42,0.92);color:#f8fafc;cursor:pointer;transition:all 0.15s;';
+      btn.innerHTML = `
+        <div style="font-size:13px;font-weight:900;color:#e0f2fe;"><span style="color:#38bdf8;margin-right:5px;">[${letters[idx]}]</span>${opt.zh}</div>
+        <div style="font-size:10.5px;color:#94a3b8;margin-top:2px;">${opt.sub}</div>
+      `;
+      btn.onclick = () => answerLabQuizOption(idx);
+      optsBox.appendChild(btn);
+    });
+
+    if (q.isDlg && q.zhAudio) {
+      playDialogueAudio(currentMode === 'en' && q.enAudio ? q.enAudio : q.zhAudio);
+    } else if (!q.isDlg && currentMode === 'en' && q.enAudio) {
+      playSmartAudioPath(q.enAudio, q.item.en);
+    }
+  }
+
+  function answerLabQuizOption(chosenIdx) {
+    if (_labQuizAnswered || !_labQuizCurrent) return;
+    _labQuizAnswered = true;
+    const q = _labQuizCurrent;
+    const chosen = q.options[chosenIdx];
+    const isOk = Boolean(chosen && chosen.correct);
+
+    _labQuizTotal += 1;
+    if (isOk) {
+      _labQuizPass += 1;
+      _labQuizStreak += 1;
+      if (soundEngine && soundEngine.playCorrect) soundEngine.playCorrect(_labQuizStreak);
+    } else {
+      _labQuizStreak = 0;
+      if (soundEngine && soundEngine.playCrash) soundEngine.playCrash();
+    }
+    recordBirdSrs(q.item, isOk);
+    renderLabQuizScoreAndMods();
+    renderStartHubV34();
+
+    const optBtns = document.querySelectorAll('#v35-lq-opts .v35-lq-opt-btn');
+    optBtns.forEach((b, idx) => {
+      const o = q.options[idx];
+      if (o.correct) {
+        b.style.borderColor = '#10b981';
+        b.style.background = 'rgba(16, 185, 129, 0.22)';
+      } else if (idx === chosenIdx && !isOk) {
+        b.style.borderColor = '#ef4444';
+        b.style.background = 'rgba(239, 68, 68, 0.22)';
+      } else {
+        b.style.opacity = '0.55';
+      }
+    });
+
+    // Speak the verified answer in Mandarin (or English if EN mode)
+    const ansAudio = (currentMode === 'en' && q.ansEnAudio) ? q.ansEnAudio : q.ansZhAudio;
+    if (ansAudio) playSmartAudioPath(ansAudio, '');
+
+    const fb = document.getElementById('v35-lq-feedback');
+    if (fb) {
+      fb.classList.remove('hidden');
+      const it = q.item;
+      const hanziRaw = extractQuestionHanziString(it).replace(/'/g, '');
+      const quadSummary = q.isDlg
+        ? `<div style="font-size:12px;color:#ecfdf5;font-weight:800;">🇨🇳 ${it.correct_zh}</div>
+           <div style="font-size:11px;color:#7dd3fc;">🗣️ ${it.correct_pinyin}</div>
+           <div style="font-size:11px;color:#fde68a;">🇬🇧 ${it.correct_en || ''}</div>
+           <div style="font-size:11px;color:#cbd5e1;">🇻🇳 ${it.correct_vi}</div>`
+        : `<div style="font-size:13px;color:#ecfdf5;font-weight:900;">🇨🇳 ${it.zh} <span style="color:#7dd3fc;font-weight:700;">(${it.pinyin})</span></div>
+           <div style="font-size:11px;color:#fde68a;">🇬🇧 ${it.en}</div>
+           <div style="font-size:11px;color:#cbd5e1;">🇻🇳 ${it.vi}</div>`;
+
+      fb.innerHTML = `
+        <div style="padding:9px 11px;border-radius:12px;border:1.5px solid ${isOk ? '#10b981' : '#f43f5e'};background:rgba(15,23,42,0.95);">
+          <div style="font-size:12px;font-weight:900;color:${isOk ? '#34d399' : '#fda4af'};margin-bottom:4px;">
+            ${isOk ? '✅ LAB AUDIT PASS — CHUẨN XÁC!' : '❌ NG — ĐỐI SÁCH CHUẨN CẦN NHỚ:'}
+          </div>
+          ${quadSummary}
+          ${it.feynman_hook ? `<div class="v34-mnemonic-box" style="margin-top:6px;text-align:left;">💡 <b>Feynman 80/20:</b> ${it.feynman_hook}</div>` : ''}
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+            <button class="v34-sec-btn" style="font-size:11px;padding:7px;" onclick="window.openBirdRadicalModal('${hanziRaw}', 0)">🧩 Chiết Tự &amp; Viết</button>
+            <button class="v34-sec-btn" style="font-size:11px;padding:7px;border-color:#34d399;color:#6ee7b7;" onclick="window._flyCurrentLabQuizModule()">🚀 Bay Mô-đun Này</button>
+            <button class="v34-pri-btn" style="font-size:11.5px;padding:7px 10px;" onclick="window._nextLabQuizQ()">Câu Tiếp ➜</button>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  window.openLabQuizDrillsModal = openLabQuizDrillsModal;
+  window._closeLabQuizModal = function () {
+    stopCurrentVoice();
+    document.getElementById('v35-lab-quiz-modal')?.remove();
+  };
+  window._switchLabQuizMod = function (modId) {
+    _labQuizModule = modId;
+    nextLabQuizQuestion();
+  };
+  window._nextLabQuizQ = nextLabQuizQuestion;
+  window._playLabQuizVoice = function (lang) {
+    if (!_labQuizCurrent) return;
+    const q = _labQuizCurrent;
+    const p = lang === 'en' ? (q.isDlg ? ( _labQuizAnswered ? q.ansEnAudio : q.enAudio ) : q.enAudio) : (q.isDlg ? ( _labQuizAnswered ? q.ansZhAudio : q.zhAudio ) : q.zhAudio);
+    if (p) playSmartAudioPath(p, '');
+  };
+  window._flyCurrentLabQuizModule = function () {
+    const mod = _labQuizModule || 'all';
+    document.getElementById('v35-lab-quiz-modal')?.remove();
+    if (typeof selectPlayMode === 'function') selectPlayMode('lab7qc');
+    if (typeof selectLab7qcModule === 'function') {
+      const btn = document.querySelector(`.lab7qc-mod-pill[onclick*="'${mod}'"]`);
+      selectLab7qcModule(mod, btn);
+    }
+    window.startGame(false);
+  };
+
+  // =========================================================================
+  // 11. 🎧 ĐẤU TRƯỜNG LUYỆN NGHE PHẢN XẠ XƯỞNG (AUDIO LISTENING & DICTATION DRILLS)
+  // =========================================================================
+  const _savedListen = sGetJSON(STORAGE_KEYS.LISTEN, {
+    pass: 0,
+    total: 0,
+    streak: 0,
+    bestStreak: 0,
+    langMode: 'zh',
+    drillMode: 'mix'
+  });
+
+  let _listenModule = 'all';
+  let _listenLangMode = _savedListen.langMode || 'zh'; // 'zh', 'en', 'mix'
+  let _listenDrillMode = _savedListen.drillMode || 'mix'; // 'meaning_spec', 'hanzi_dictation', 'mix'
+  let _listenPass = _savedListen.pass || 0;
+  let _listenTotal = _savedListen.total || 0;
+  let _listenStreak = _savedListen.streak || 0;
+  let _listenBestStreak = _savedListen.bestStreak || 0;
+  let _listenCurrent = null;
+  let _listenAnswered = false;
+  let _listenMixCounter = 0;
+
+  function saveListenStats() {
+    sSetJSON(STORAGE_KEYS.LISTEN, {
+      pass: _listenPass,
+      total: _listenTotal,
+      streak: _listenStreak,
+      bestStreak: _listenBestStreak,
+      langMode: _listenLangMode,
+      drillMode: _listenDrillMode
+    });
+  }
+
+  function setWavePlayingState(active, statusText) {
+    const w = document.getElementById('v36-ls-wave');
+    if (w) w.classList.toggle('playing', Boolean(active));
+    const st = document.getElementById('v36-ls-status');
+    if (st && statusText) st.textContent = statusText;
+  }
+
+  function playListeningClip(relPath, rate, fallbackText, fallbackLang) {
+    const safeRate = (typeof rate === 'number' && rate > 0.3) ? rate : 1.0;
+    if (soundEngine && !soundEngine.sfxEnabled) {
+      setWavePlayingState(false, '🔇 Loa SFX đang tắt — Bấm nút [🔊 Bật Loa] bên dưới để nghe!');
+      return;
+    }
+    stopCurrentVoice();
+
+    const rateLabel = safeRate < 0.9 ? '🐢 Chậm 0.75x' : '🔊 Chuẩn 1.0x';
+    const voiceTag = fallbackLang === 'en-US' ? '🇬🇧 Aria' : '🇨🇳 Xiaoxiao';
+
+    if (relPath && typeof sharedVoicePlayer !== 'undefined') {
+      try {
+        const playSrc = (typeof offlineBlobMap !== 'undefined' && offlineBlobMap.get(relPath)) || relPath;
+        currentVoiceAudio = sharedVoicePlayer;
+        sharedVoicePlayer.src = playSrc;
+        sharedVoicePlayer.volume = 1.0;
+        sharedVoicePlayer.defaultPlaybackRate = safeRate;
+        sharedVoicePlayer.playbackRate = safeRate;
+        setWavePlayingState(true, `🎧 Đang phát ${voiceTag} (${rateLabel}) — Hãy lắng nghe kỹ!`);
+        sharedVoicePlayer.onended = () => {
+          setWavePlayingState(false, '👂 Đã phát xong — Bấm nghe lại 1.0x / 0.75x hoặc chốt đáp án!');
+        };
+        const p = sharedVoicePlayer.play();
+        if (p !== undefined) {
+          p.then(() => {
+            try { sharedVoicePlayer.playbackRate = safeRate; } catch (e) {}
+          }).catch(() => {
+            setWavePlayingState(false, '🔈 Chạm [🔊 Nghe Chuẩn 1.0x] để kích hoạt loa trình duyệt!');
+            if (fallbackText && 'speechSynthesis' in window) {
+              try {
+                const u = new SpeechSynthesisUtterance(fallbackText);
+                u.lang = fallbackLang || 'zh-CN';
+                u.rate = safeRate * 0.92;
+                window.speechSynthesis.speak(u);
+              } catch (e) {}
+            }
+          });
+        }
+        return;
+      } catch (e) {}
+    }
+
+    if (fallbackText && 'speechSynthesis' in window) {
+      try {
+        window.speechSynthesis.cancel();
+        const u = new SpeechSynthesisUtterance(fallbackText);
+        u.lang = fallbackLang || 'zh-CN';
+        u.rate = safeRate * 0.92;
+        setWavePlayingState(true, `🎧 Đang đọc ${voiceTag} (${rateLabel})...`);
+        u.onend = () => setWavePlayingState(false, '👂 Đã phát xong — Chọn đáp án bên dưới!');
+        window.speechSynthesis.speak(u);
+      } catch (e) {}
+    }
+  }
+
+  function getListeningPool(modFilter) {
+    if (modFilter === 'srs_mistakes') {
+      const m = getMistakeList().filter((it) => it && (it.audio || it.q_audio));
+      if (m.length > 0) return m;
+    }
+    return getLabExpansionPool(modFilter === 'srs_mistakes' ? 'all' : modFilter);
+  }
+
+  function buildListenDojoQuestion(modFilter) {
+    const exp = window.CYBERBIRD_LAB7QC_EXPANSION || { vocab: [], dialogues: [] };
+    const allV = exp.vocab || [];
+    const allD = exp.dialogues || [];
+    const pool = getListeningPool(modFilter);
+    if (!pool.length) return null;
+
+    const target = pool[Math.floor(Math.random() * pool.length)];
+    const isDlg = isDialogueItem(target);
+    _listenMixCounter += 1;
+
+    // Determine spoken language for this blind clip
+    const hasEnClip = isDlg ? Boolean(target.q_audio_en) : Boolean(target.audio_en);
+    let clipLang = 'zh';
+    if (_listenLangMode === 'en' && hasEnClip) {
+      clipLang = 'en';
+    } else if (_listenLangMode === 'mix' && hasEnClip) {
+      clipLang = (_listenMixCounter % 2 === 0) ? 'en' : 'zh';
+    }
+
+    // Determine drill task type ('meaning_spec' vs 'hanzi_dictation')
+    let taskType = _listenDrillMode;
+    if (taskType === 'mix') {
+      taskType = (_listenMixCounter % 2 === 1) ? 'meaning_spec' : 'hanzi_dictation';
+    }
+
+    const clipAudio = isDlg
+      ? (clipLang === 'en' ? target.q_audio_en : target.q_audio)
+      : (clipLang === 'en' ? target.audio_en : target.audio);
+    const clipFallbackText = isDlg
+      ? (clipLang === 'en' ? (target.q_en || target.q_zh) : target.q_zh)
+      : (clipLang === 'en' ? (target.en || target.zh) : target.zh);
+
+    if (isDlg) {
+      const otherDlgs = (allD.length >= 4 ? allD : FACTORY_DIALOGUES).filter((d) => d && d.q_zh !== target.q_zh);
+      let options = [];
+      let taskInstruction = '';
+
+      if (taskType === 'hanzi_dictation') {
+        taskInstruction = clipLang === 'zh'
+          ? '🈯 Nghe mù băng hiện trường → Chép chính tả đúng CÂU HÁN TỰ vừa phát:'
+          : '⚡ Nghe câu hỏi tiếng Anh tại xưởng → Bắt đúng CÂU HÁN TỰ tương ứng:';
+        const distractors = shuffleArr(otherDlgs).slice(0, 3).map((d) => ({
+          main: d.q_zh,
+          sub: d.speaker || '🗣️ Tình huống dây chuyền',
+          correct: false
+        }));
+        options = shuffleArr([
+          {
+            main: target.q_zh,
+            sub: target.speaker || '🗣️ Tình huống dây chuyền',
+            correct: true
+          },
+          ...distractors
+        ]);
+      } else {
+        taskInstruction = '🎯 Nghe câu hỏi Quản đốc/QC (ẩn chữ) → Chọn đúng Ý NGHĨA & ĐỐI SÁCH SOP:';
+        const distractors = shuffleArr(otherDlgs).slice(0, 3).map((d) => ({
+          main: `🇻🇳 ${d.q_vi}`,
+          sub: `✅ Đáp SOP: ${d.correct_vi}`,
+          correct: false
+        }));
+        options = shuffleArr([
+          {
+            main: `🇻🇳 ${target.q_vi}`,
+            sub: `✅ Đáp SOP: ${target.correct_vi}`,
+            correct: true
+          },
+          ...distractors
+        ]);
+      }
+
+      return {
+        isDlg: true,
+        item: target,
+        clipLang,
+        taskType,
+        clipAudio,
+        clipFallbackText,
+        zhAudio: target.q_audio,
+        enAudio: target.q_audio_en,
+        ansZhAudio: target.a_audio,
+        ansEnAudio: target.a_audio_en,
+        badge: target.speaker || LAB_MOD_LABELS[target.module] || '🗣️ HỘI THOẠI XƯỞNG',
+        voiceLabel: clipLang === 'en' ? '🇬🇧 Giọng Anh • Aria Neural' : '🇨🇳 Giọng Trung • Xiaoxiao Neural',
+        taskInstruction,
+        options
+      };
+    }
+
+    // Technical Vocabulary item
+    const sameMod = allV.filter((v) => v.zh !== target.zh && v.module === target.module);
+    const otherPool = sameMod.length >= 3 ? sameMod : allV.filter((v) => v.zh !== target.zh);
+    let options = [];
+    let taskInstruction = '';
+
+    if (taskType === 'hanzi_dictation') {
+      taskInstruction = clipLang === 'zh'
+        ? '🈯 Nghe mù giọng Trung → Bắt đúng THUẬT NGỮ HÁN TỰ (Dictation):'
+        : '⚡ Nghe thuật ngữ tiếng Anh → Phản xạ chọn đúng CHỮ HÁN & PINYIN:';
+
+      const usedZh = new Set([target.zh]);
+      const rawDist = [];
+      if (target.dist_zh && !usedZh.has(target.dist_zh)) {
+        usedZh.add(target.dist_zh);
+        rawDist.push({
+          main: target.dist_zh,
+          sub: clipLang === 'zh' ? 'Thuật ngữ kỹ thuật dễ nhầm tại xưởng' : `🗣️ ${target.dist_pinyin || ''}`,
+          correct: false
+        });
+      }
+      for (const cand of shuffleArr(otherPool)) {
+        if (rawDist.length >= 3) break;
+        if (cand && cand.zh && !usedZh.has(cand.zh)) {
+          usedZh.add(cand.zh);
+          rawDist.push({
+            main: cand.zh,
+            sub: clipLang === 'zh' ? 'Thuật ngữ kỹ thuật dây chuyền mũ' : `🗣️ ${cand.pinyin || ''}`,
+            correct: false
+          });
+        }
+      }
+      options = shuffleArr([
+        {
+          main: target.zh,
+          sub: clipLang === 'zh' ? 'Thuật ngữ kỹ thuật dây chuyền mũ' : `🗣️ ${target.pinyin || ''}`,
+          correct: true
+        },
+        ...rawDist.slice(0, 3)
+      ]);
+    } else {
+      taskInstruction = '🎯 Nghe mù băng xưởng → Bắt đúng NGHĨA VIỆT & THÔNG SỐ KỸ THUẬT:';
+      const distractors = shuffleArr(otherPool).slice(0, 3).map((v) => ({
+        main: `🇻🇳 ${v.vi}`,
+        sub: clipLang === 'zh' ? `🇬🇧 Spec: ${v.en}` : `🈯 Hán tự: ${v.zh}`,
+        correct: false
+      }));
+      options = shuffleArr([
+        {
+          main: `🇻🇳 ${target.vi}`,
+          sub: clipLang === 'zh' ? `🇬🇧 Spec: ${target.en}` : `🈯 Hán tự: ${target.zh}`,
+          correct: true
+        },
+        ...distractors
+      ]);
+    }
+
+    return {
+      isDlg: false,
+      item: target,
+      clipLang,
+      taskType,
+      clipAudio,
+      clipFallbackText,
+      zhAudio: target.audio,
+      enAudio: target.audio_en,
+      ansZhAudio: target.audio,
+      ansEnAudio: target.audio_en,
+      badge: LAB_MOD_LABELS[target.module] || '🏭 DÂY CHUYỀN MŨ & 7QC',
+      voiceLabel: clipLang === 'en' ? '🇬🇧 Giọng Anh • Aria Neural' : '🇨🇳 Giọng Trung • Xiaoxiao Neural',
+      taskInstruction,
+      options
+    };
+  }
+
+  function renderListenDojoControls() {
+    const sb = document.getElementById('v36-ls-scorebar');
+    if (sb) {
+      const acc = _listenTotal > 0 ? Math.round((_listenPass / _listenTotal) * 100) : 100;
+      sb.innerHTML = `
+        <span>🎧 Nghe Chuẩn: <b>${_listenPass}/${_listenTotal}</b> (${acc}%)</span>
+        <span style="color:#fde047;">🔥 Chuỗi: <b>${_listenStreak}</b> (Kỷ lục: ${_listenBestStreak})</span>
+      `;
+    }
+
+    const modeRow = document.getElementById('v36-ls-moderow');
+    if (modeRow) {
+      const langs = [
+        { id: 'zh', label: '🇨🇳 Nghe Trung' },
+        { id: 'en', label: '🇬🇧 Nghe Anh' },
+        { id: 'mix', label: '🔀 Trộn CN/EN' }
+      ];
+      const drills = [
+        { id: 'meaning_spec', label: '🎯 Bắt Nghĩa & Spec' },
+        { id: 'hanzi_dictation', label: '🈯 Bắt Chữ Hán' },
+        { id: 'mix', label: '⚡ Phản Xạ Mix' }
+      ];
+      modeRow.innerHTML = `
+        <div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:4px;">
+          ${langs.map((l) => `<button class="opt-btn ${_listenLangMode === l.id ? 'active' : ''}" style="flex:1;font-size:10px;padding:4px 6px;" onclick="window._setListenLangMode('${l.id}')">${l.label}</button>`).join('')}
+        </div>
+        <div style="display:flex;gap:4px;flex-wrap:wrap;">
+          ${drills.map((d) => `<button class="opt-btn ${_listenDrillMode === d.id ? 'active' : ''}" style="flex:1;font-size:10px;padding:4px 6px;" onclick="window._setListenDrillMode('${d.id}')">${d.label}</button>`).join('')}
+        </div>
+      `;
+    }
+
+    const mp = document.getElementById('v36-ls-modpills');
+    if (mp) {
+      const mistakesCnt = getMistakeList().length;
+      const mods = [
+        { id: 'all', label: '🌟 Tất Cả (110)' },
+        { id: 'm1_helmet_lab', label: '🪖 M1: Lab (18)' },
+        { id: 'm2_robot_molding', label: '🤖 M2: Robot (16)' },
+        { id: 'm3_7qc_8d', label: '📊 M3: 7QC (16)' },
+        { id: 'm4_floor_dialogues', label: '🗣️ M4: Hội Thoại (26)' },
+        { id: 'm5_paint_decal_eps', label: '🎨 M5: Sơn/Tem/EPS (23)' },
+        { id: 'm6_assembly_export_cont', label: '📦 M6: Ráp/Cont (21)' }
+      ];
+      if (mistakesCnt > 0) {
+        mods.push({ id: 'srs_mistakes', label: `🩹 Câu Sai (${mistakesCnt})` });
+      }
+      mp.innerHTML = mods.map((m) => `
+        <button class="opt-btn ${_listenModule === m.id ? 'active' : ''}" style="font-size:9.8px;padding:3px 6px;" onclick="window._switchListenDojoMod('${m.id}')">${m.label}</button>
+      `).join('');
+    }
+  }
+
+  function nextListenDojoQuestion() {
+    _listenAnswered = false;
+    _listenCurrent = buildListenDojoQuestion(_listenModule);
+    renderListenDojoControls();
+    const body = document.getElementById('v36-ls-body');
+    if (!body || !_listenCurrent) return;
+
+    const q = _listenCurrent;
+    const mutedBanner = (soundEngine && !soundEngine.sfxEnabled)
+      ? `<button class="v34-mini-btn" style="width:100%;margin-bottom:6px;background:rgba(244,63,94,0.28);border-color:#f43f5e;color:#fecdd3;padding:6px;" onclick="window._unmuteAndReplayListenDojo()">🔇 Loa SFX đang tắt — BẤM BẬT LOA &amp; PHÁT NGAY 🔊</button>`
+      : '';
+
+    const barsHtml = Array.from({ length: 14 }, () => '<span class="v36-wave-bar"></span>').join('');
+
+    body.innerHTML = `
+      <div class="v36-blind-stage">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:4px;">
+          <span style="font-size:10px;font-weight:900;color:#38bdf8;">${q.badge}</span>
+          <span style="font-size:9.8px;font-weight:800;color:#fde047;background:rgba(250,204,21,0.14);border:1px solid rgba(250,204,21,0.38);padding:1px 7px;border-radius:99px;">${q.voiceLabel}</span>
+        </div>
+        ${mutedBanner}
+        <div id="v36-ls-blind-mask" style="text-align:center;padding:3px 4px;">
+          <div style="font-size:11.5px;font-weight:900;color:#e0f2fe;">🔒 ĐANG ẨN CHỮ GỐC — LUYỆN TAI PHẢN XẠ XƯỞNG</div>
+          <div id="v36-ls-wave" class="v36-wave-row">${barsHtml}</div>
+          <div id="v36-ls-status" style="font-size:10px;color:#94a3b8;margin-bottom:6px;">🎧 Chuẩn bị phát băng âm thanh thực chiến...</div>
+        </div>
+        <div style="display:flex;gap:6px;">
+          <button class="v36-speed-btn" onclick="window._replayListenDojo(1.0)">🔊 Nghe Chuẩn 1.0x</button>
+          <button class="v36-speed-btn slow" onclick="window._replayListenDojo(0.75)">🐢 Nghe Chậm 0.75x</button>
+        </div>
+        <div style="font-size:11px;font-weight:800;color:#fde68a;margin-top:8px;border-top:1px dashed rgba(148,163,184,0.28);padding-top:6px;">
+          ${q.taskInstruction}
+        </div>
+      </div>
+      <div id="v36-ls-opts" style="display:flex;flex-direction:column;gap:6px;"></div>
+      <div id="v36-ls-feedback" class="hidden" style="margin-top:8px;"></div>
+    `;
+
+    const optsBox = document.getElementById('v36-ls-opts');
+    const letters = ['A', 'B', 'C', 'D'];
+    q.options.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'v36-ls-opt-btn';
+      btn.style.cssText = 'width:100%;text-align:left;padding:8px 10px;border-radius:11px;border:1.5px solid rgba(148,163,184,0.34);background:rgba(15,23,42,0.92);color:#f8fafc;cursor:pointer;transition:all 0.15s;';
+      btn.innerHTML = `
+        <div style="font-size:13px;font-weight:900;color:#f1f5f9;line-height:1.32;"><span style="color:#38bdf8;margin-right:5px;">[${letters[idx]}]</span>${opt.main}</div>
+        <div style="font-size:10.5px;color:#94a3b8;margin-top:2px;line-height:1.3;">${opt.sub}</div>
+      `;
+      btn.onclick = () => answerListenDojoOption(idx);
+      optsBox.appendChild(btn);
+    });
+
+    // Auto-play the blind factory clip at 1.0x immediately!
+    playListeningClip(q.clipAudio, 1.0, q.clipFallbackText, q.clipLang === 'en' ? 'en-US' : 'zh-CN');
+  }
+
+  function answerListenDojoOption(chosenIdx) {
+    if (_listenAnswered || !_listenCurrent) return;
+    _listenAnswered = true;
+    const q = _listenCurrent;
+    const chosen = q.options[chosenIdx];
+    const isOk = Boolean(chosen && chosen.correct);
+
+    _listenTotal += 1;
+    if (isOk) {
+      _listenPass += 1;
+      _listenStreak += 1;
+      if (_listenStreak > _listenBestStreak) _listenBestStreak = _listenStreak;
+      if (soundEngine && soundEngine.playCorrect) soundEngine.playCorrect(_listenStreak);
+    } else {
+      _listenStreak = 0;
+      if (soundEngine && soundEngine.playCrash) soundEngine.playCrash();
+    }
+
+    const graduated = recordBirdSrs(q.item, isOk);
+    loadAndTouchDailyStreak(true);
+    saveListenStats();
+    renderListenDojoControls();
+    renderStartHubV34();
+
+    // Update blind stage header to show unlocked transcript status
+    const maskEl = document.getElementById('v36-ls-blind-mask');
+    if (maskEl) {
+      const unlockedTitle = q.isDlg ? q.item.q_zh : `${q.item.zh} (${q.item.pinyin})`;
+      maskEl.innerHTML = `
+        <div style="font-size:10.5px;font-weight:900;color:#34d399;">🔓 ĐÃ MỞ KHÓA BĂNG GỐC TỨ NGỮ:</div>
+        <div style="font-size:15px;font-weight:900;color:#fde047;margin:3px 0;line-height:1.3;">${unlockedTitle}</div>
+      `;
+    }
+
+    const optBtns = document.querySelectorAll('#v36-ls-opts .v36-ls-opt-btn');
+    optBtns.forEach((b, idx) => {
+      const o = q.options[idx];
+      if (o.correct) {
+        b.style.borderColor = '#10b981';
+        b.style.background = 'rgba(16, 185, 129, 0.24)';
+      } else if (idx === chosenIdx && !isOk) {
+        b.style.borderColor = '#ef4444';
+        b.style.background = 'rgba(239, 68, 68, 0.24)';
+      } else {
+        b.style.opacity = '0.52';
+      }
+    });
+
+    // For dialogues, play the verified SOP countermeasure upon answering; for vocab, replay clear Mandarin
+    if (q.isDlg) {
+      const replyClip = (q.clipLang === 'en' && q.ansEnAudio) ? q.ansEnAudio : q.ansZhAudio;
+      if (replyClip) {
+        playListeningClip(replyClip, 1.0, q.clipLang === 'en' ? q.item.correct_en : q.item.correct_zh, q.clipLang === 'en' ? 'en-US' : 'zh-CN');
+      }
+    }
+
+    const fb = document.getElementById('v36-ls-feedback');
+    if (fb) {
+      fb.classList.remove('hidden');
+      const it = q.item;
+      const hanziRaw = extractQuestionHanziString(it).replace(/'/g, '');
+      const gradBanner = graduated
+        ? `<div style="font-size:11px;font-weight:900;color:#fde047;margin-bottom:4px;">🩹 ĐÃ XÓA NỢ CÂU SAI TRONG KHO SRS!</div>`
+        : '';
+
+      const quadBreakdown = q.isDlg
+        ? `
+          <div class="v36-quad-box">
+            <div style="font-size:10px;font-weight:900;color:#38bdf8;margin-bottom:2px;">🎙️ CÂU HỎI HIỆN TRƯỜNG (BĂNG GỐC):</div>
+            <div style="font-size:12.5px;color:#fff;font-weight:900;">🇨🇳 ${it.q_zh}</div>
+            <div style="font-size:11px;color:#7dd3fc;">🗣️ ${it.q_pinyin || ''}</div>
+            <div style="font-size:11px;color:#fde68a;">🇬🇧 ${it.q_en || ''}</div>
+            <div style="font-size:11px;color:#cbd5e1;">🇻🇳 ${it.q_vi || ''}</div>
+          </div>
+          <div class="v36-quad-box" style="border-color:rgba(16,185,129,0.45);margin-top:5px;">
+            <div style="font-size:10px;font-weight:900;color:#34d399;margin-bottom:2px;">✅ ĐỐI SÁCH CHUẨN SOP QUẢN ĐỐC / QA:</div>
+            <div style="font-size:12.5px;color:#ecfdf5;font-weight:900;">🇨🇳 ${it.correct_zh}</div>
+            <div style="font-size:11px;color:#7dd3fc;">🗣️ ${it.correct_pinyin || ''}</div>
+            <div style="font-size:11px;color:#fde68a;">🇬🇧 ${it.correct_en || ''}</div>
+            <div style="font-size:11px;color:#cbd5e1;">🇻🇳 ${it.correct_vi || ''}</div>
+          </div>
+        `
+        : `
+          <div class="v36-quad-box">
+            <div style="font-size:14px;color:#fff;font-weight:900;">🇨🇳 ${it.zh} <span style="color:#7dd3fc;font-size:12px;font-weight:700;">(${it.pinyin})</span></div>
+            <div style="font-size:11.5px;color:#fde68a;font-weight:800;margin-top:2px;">🇬🇧 ${it.en || ''}</div>
+            <div style="font-size:11.5px;color:#ecfdf5;font-weight:800;margin-top:2px;">🇻🇳 ${it.vi || ''}</div>
+            ${it.dist_zh ? `<div style="font-size:10px;color:#94a3b8;margin-top:3px;">⚠️ Phân biệt bẫy dễ nhầm: <b>${it.dist_zh}</b> (${it.dist_pinyin || ''} • ${it.dist_en || ''})</div>` : ''}
+          </div>
+        `;
+
+      const replayGrid = q.isDlg
+        ? `
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px;">
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;" onclick="window._playListenRevealClip('q_zh', 1.0)">🇨🇳 Hỏi 1.0x</button>
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#fde047;color:#fef08a;" onclick="window._playListenRevealClip('q_zh', 0.75)">🐢 Hỏi Chậm 0.75x</button>
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#34d399;color:#a7f3d0;" onclick="window._playListenRevealClip('a_zh', 1.0)">🇨🇳 Đáp SOP 1.0x</button>
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#34d399;color:#fde68a;" onclick="window._playListenRevealClip('a_zh', 0.75)">🐢 Đáp Chậm 0.75x</button>
+            ${q.enAudio ? `<button class="v34-mini-btn" style="font-size:10px;padding:5px;" onclick="window._playListenRevealClip('q_en', 1.0)">🇬🇧 Hỏi EN 1.0x</button>` : ''}
+            ${q.ansEnAudio ? `<button class="v34-mini-btn" style="font-size:10px;padding:5px;" onclick="window._playListenRevealClip('a_en', 0.75)">🐢 Đáp EN 0.75x</button>` : ''}
+          </div>
+        `
+        : `
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:7px;">
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;" onclick="window._playListenRevealClip('q_zh', 1.0)">🇨🇳 Trung 1.0x</button>
+            <button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#fde047;color:#fef08a;" onclick="window._playListenRevealClip('q_zh', 0.75)">🐢 Trung Chậm 0.75x</button>
+            ${q.enAudio ? `<button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#34d399;color:#a7f3d0;" onclick="window._playListenRevealClip('q_en', 1.0)">🇬🇧 Anh 1.0x</button>` : ''}
+            ${q.enAudio ? `<button class="v34-mini-btn" style="font-size:10px;padding:5px;border-color:#34d399;color:#fde68a;" onclick="window._playListenRevealClip('q_en', 0.75)">🐢 Anh Chậm 0.75x</button>` : ''}
+          </div>
+        `;
+
+      fb.innerHTML = `
+        <div style="padding:9px 11px;border-radius:12px;border:1.5px solid ${isOk ? '#10b981' : '#f43f5e'};background:rgba(15,23,42,0.96);">
+          <div style="font-size:12px;font-weight:900;color:${isOk ? '#34d399' : '#fda4af'};margin-bottom:3px;">
+            ${isOk ? '✅ TAI NGHE CHUẨN XÁC — PHẢN XẠ XƯỞNG ĐỈNH CAO!' : '❌ NGHE NHẦM — MỞ BĂNG GỐC ĐỐI CHIẾU NGAY:'}
+          </div>
+          ${gradBanner}
+          ${quadBreakdown}
+          ${it.feynman_hook ? `<div class="v34-mnemonic-box" style="margin-top:6px;text-align:left;">💡 <b>Feynman 80/20:</b> ${it.feynman_hook}</div>` : ''}
+          ${replayGrid}
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:8px;">
+            <button class="v34-sec-btn" style="font-size:11px;padding:7px;" onclick="window.openBirdRadicalModal('${hanziRaw}', 0)">🧩 Chiết Tự &amp; Viết</button>
+            <button class="v34-sec-btn" style="font-size:11px;padding:7px;border-color:#34d399;color:#6ee7b7;" onclick="window._flyCurrentListenModule()">🚀 Bay Mô-đun</button>
+            <button class="v34-pri-btn" style="font-size:11.5px;padding:7px 10px;" onclick="window._nextListenDojoQ()">Câu Nghe Tiếp ➜</button>
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function openAudioListeningDojoModal(initialModule) {
+    if (initialModule) _listenModule = initialModule;
+    else if (typeof selectedLab7qcModule === 'string' && selectedLab7qcModule) {
+      _listenModule = selectedLab7qcModule;
+    }
+
+    document.getElementById('v35-lab-quiz-modal')?.remove();
+    document.getElementById('v36-listen-dojo-modal')?.remove();
+    const modal = document.createElement('div');
+    modal.id = 'v36-listen-dojo-modal';
+    modal.className = 'v34-modal-backdrop v34-no-flap';
+    modal.style.cssText = 'z-index:66;padding:10px;overflow-y:auto;';
+    modal.innerHTML = `
+      <div class="v34-modal-card" style="max-width:386px;max-height:93dvh;overflow-y:auto;text-align:left;border-color:#38bdf8;">
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:6px;margin-bottom:6px;">
+          <span style="font-size:12px;font-weight:900;color:#38bdf8;">🎧 ĐẤU TRƯỜNG LUYỆN NGHE PHẢN XẠ XƯỞNG</span>
+          <div style="display:flex;gap:4px;">
+            <button class="v34-mini-btn" style="border-color:#fde047;color:#fef08a;font-size:10px;padding:3px 7px;" onclick="window.openLabQuizDrillsModal(_listenModule === 'srs_mistakes' ? 'all' : _listenModule)">🧪 Đọc Quiz</button>
+            <button class="v34-mini-btn" style="border-color:#f43f5e;color:#fecdd3;background:rgba(225,29,72,0.2);font-size:10px;padding:3px 7px;" onclick="window._closeListenDojoModal()">✕</button>
+          </div>
+        </div>
+        <div id="v36-ls-scorebar" style="display:flex;justify-content:space-between;font-size:10.8px;font-weight:800;color:#34d399;background:rgba(15,23,42,0.9);padding:5px 9px;border-radius:9px;border:1px solid rgba(56,189,248,0.38);margin-bottom:6px;"></div>
+        <div id="v36-ls-moderow" style="margin-bottom:6px;"></div>
+        <div id="v36-ls-modpills" style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px;"></div>
+        <div id="v36-ls-body"></div>
+      </div>
+    `;
+    document.getElementById('game-container')?.appendChild(modal);
+    nextListenDojoQuestion();
+  }
+
+  window.openAudioListeningDojoModal = openAudioListeningDojoModal;
+  window._closeListenDojoModal = function () {
+    stopCurrentVoice();
+    document.getElementById('v36-listen-dojo-modal')?.remove();
+  };
+  window._setListenLangMode = function (m) {
+    _listenLangMode = m;
+    saveListenStats();
+    nextListenDojoQuestion();
+  };
+  window._setListenDrillMode = function (m) {
+    _listenDrillMode = m;
+    saveListenStats();
+    nextListenDojoQuestion();
+  };
+  window._switchListenDojoMod = function (modId) {
+    _listenModule = modId;
+    nextListenDojoQuestion();
+  };
+  window._nextListenDojoQ = nextListenDojoQuestion;
+  window._replayListenDojo = function (rate) {
+    if (!_listenCurrent) return;
+    const q = _listenCurrent;
+    playListeningClip(q.clipAudio, rate || 1.0, q.clipFallbackText, q.clipLang === 'en' ? 'en-US' : 'zh-CN');
+  };
+  window._unmuteAndReplayListenDojo = function () {
+    if (soundEngine && !soundEngine.sfxEnabled && typeof toggleAudio === 'function') {
+      toggleAudio();
+    }
+    nextListenDojoQuestion();
+  };
+  window._playListenRevealClip = function (kind, rate) {
+    if (!_listenCurrent) return;
+    const q = _listenCurrent;
+    const it = q.item;
+    if (kind === 'q_en') {
+      playListeningClip(q.enAudio, rate, q.isDlg ? it.q_en : it.en, 'en-US');
+    } else if (kind === 'a_zh') {
+      playListeningClip(q.ansZhAudio, rate, q.isDlg ? it.correct_zh : it.zh, 'zh-CN');
+    } else if (kind === 'a_en') {
+      playListeningClip(q.ansEnAudio, rate, q.isDlg ? it.correct_en : it.en, 'en-US');
+    } else {
+      playListeningClip(q.zhAudio, rate, q.isDlg ? it.q_zh : it.zh, 'zh-CN');
+    }
+  };
+  window._flyCurrentListenModule = function () {
+    const mod = (_listenModule && _listenModule !== 'srs_mistakes') ? _listenModule : 'all';
+    const wasSrs = _listenModule === 'srs_mistakes';
+    document.getElementById('v36-listen-dojo-modal')?.remove();
+    if (wasSrs) {
+      window._startSrsRevengeFlight();
+      return;
+    }
+    if (typeof selectPlayMode === 'function') selectPlayMode('lab7qc');
+    if (typeof selectLab7qcModule === 'function') {
+      const btn = document.querySelector(`.lab7qc-mod-pill[onclick*="'${mod}'"]`);
+      selectLab7qcModule(mod, btn);
+    }
+    window.startGame(false);
+  };
+
+  // Keyboard shortcuts inside Listening Dojo (1-4 / A-D, R = 1.0x, S = 0.75x, Enter = Next, Esc = Close)
+  window.addEventListener('keydown', (e) => {
+    const lsModal = document.getElementById('v36-listen-dojo-modal');
+    if (!lsModal || document.getElementById('v34-radical-modal')) return;
+    if (e.key === 'Escape') {
+      e.preventDefault();
+      window._closeListenDojoModal();
+    } else if (e.key === 'r' || e.key === 'R' || e.code === 'Space') {
+      e.preventDefault();
+      window._replayListenDojo(1.0);
+    } else if (e.key === 's' || e.key === 'S') {
+      e.preventDefault();
+      window._replayListenDojo(0.75);
+    } else if (_listenAnswered && e.key === 'Enter') {
+      e.preventDefault();
+      nextListenDojoQuestion();
+    } else if (!_listenAnswered) {
+      const kMap = { '1': 0, '2': 1, '3': 2, '4': 3, a: 0, b: 1, c: 2, d: 3, A: 0, B: 1, C: 2, D: 3 };
+      if (Object.prototype.hasOwnProperty.call(kMap, e.key)) {
+        e.preventDefault();
+        answerListenDojoOption(kMap[e.key]);
+      }
+    }
+  });
+
   function renderStartHubV34() {
     const hub = document.getElementById('v34-start-hub');
     if (!hub) return;
@@ -1379,6 +2441,12 @@
       <a class="v34-hub-chip eon-factory-link" href="https://truongduc164.github.io/factory-eon/">
         🏭 VÀO GAME NHÀ MÁY EON (G179 • 17 Khu QA/QC) ➜
       </a>
+      <button class="v34-hub-chip" style="grid-column:span 2;border-color:#38bdf8;background:linear-gradient(135deg,rgba(2,132,199,0.38),rgba(16,185,129,0.32));color:#e0f2fe;font-size:11.5px;padding:8px 10px;box-shadow:0 3px 12px rgba(56,189,248,0.28);" onclick="window.openAudioListeningDojoModal()">
+        🎧 ĐẤU TRƯỜNG LUYỆN NGHE PHẢN XẠ XƯỞNG (Nghe Mù CN/EN • 0.75x/1.0x) ➜
+      </button>
+      <button class="v34-hub-chip" style="grid-column:span 2;border-color:#fde047;background:linear-gradient(135deg,rgba(217,119,6,0.28),rgba(5,150,105,0.32));color:#fef08a;font-size:11.2px;padding:7px 10px;" onclick="window.openLabQuizDrillsModal()">
+        🧪 ĐẤU TRƯỜNG LAB MŨ &amp; DÂY CHUYỀN QUIZ (110 Mục • 6 Mô-đun) ➜
+      </button>
       <button class="v34-hub-chip ${mistakesCnt > 0 ? 'revenge-hot' : ''}" onclick="window._startSrsRevengeFlight()">
         🩹 Ôn Câu Sai (${mistakesCnt})
       </button>
@@ -1399,7 +2467,7 @@
     hookCoreGameV34();
     injectV34StylesAndDOM();
     renderStartHubV34();
-    console.log('🚀 [CyberBird Lingo PRO v3.4.0] Auto-Cruise + QC Keyword Highlight + Energy Shield + Radical Dojo READY!');
+    console.log('🚀 [CyberBird Lingo PRO v3.6.0] 6-Module Production Line (110 Items) + Audio Listening Reflex Dojo READY!');
   }
 
   if (document.readyState === 'loading') {

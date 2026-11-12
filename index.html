@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.4.1 PRO)</title>
+  <title>CyberBird Lingo • by DEAN OPTIMIZE (v3.6.0 PRO)</title>
   <meta name="author" content="DEAN OPTIMIZE">
-  <meta name="version" content="3.4.0">
+  <meta name="version" content="3.6.0">
   <meta name="copyright" content="DEAN OPTIMIZE">
   <!-- PWA & iOS Standalone Support -->
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -387,12 +387,15 @@
     }
     .mode-tabs {
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 5px;
       margin-bottom: 10px;
       background: rgba(15, 23, 42, 0.85);
-      padding: 4px;
+      padding: 5px;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.12);
+      max-width: 348px;
     }
     .mode-tab-btn {
       background: transparent;
@@ -412,6 +415,75 @@
       background: linear-gradient(135deg, #0284c7, #2563eb);
       color: #fff;
       box-shadow: 0 4px 15px rgba(2, 132, 199, 0.5);
+    }
+    .mode-tab-btn.lab7qc-tab-btn {
+      color: #fde047;
+      border: 1px solid rgba(250, 204, 21, 0.38);
+      background: rgba(245, 158, 11, 0.13);
+    }
+    .mode-tab-btn.lab7qc-tab-btn.active {
+      background: linear-gradient(135deg, #059669, #d97706);
+      color: #fff;
+      border-color: #fde047;
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.45);
+    }
+    .cat-pill.lab7qc-accent-pill {
+      border-color: rgba(250, 204, 21, 0.48);
+      color: #fde047;
+      background: rgba(245, 158, 11, 0.15);
+    }
+    .cat-pill.lab7qc-accent-pill.active {
+      background: linear-gradient(135deg, #059669, #0284c7);
+      color: #fff;
+      border-color: #34d399;
+      box-shadow: 0 0 12px rgba(16, 185, 129, 0.55);
+    }
+    .lab7qc-drill-launch-btn {
+      width: 100%;
+      margin-top: 7px;
+      padding: 7px 10px;
+      border-radius: 10px;
+      border: 1.5px solid #fde047;
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.32), rgba(5, 150, 105, 0.38));
+      color: #fef08a;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 3px 12px rgba(245, 158, 11, 0.25);
+      transition: transform 0.15s;
+    }
+    .lab7qc-drill-launch-btn:active {
+      transform: scale(0.97);
+    }
+    .mode-tab-btn.listen-tab-btn {
+      color: #7dd3fc;
+      border: 1px solid rgba(56, 189, 248, 0.48);
+      background: rgba(2, 132, 199, 0.18);
+    }
+    .listen-drill-launch-btn {
+      width: 100%;
+      margin-top: 7px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1.5px solid #38bdf8;
+      background: linear-gradient(135deg, rgba(2, 132, 199, 0.42), rgba(16, 185, 129, 0.36));
+      color: #e0f2fe;
+      font-size: 11px;
+      font-weight: 900;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      box-shadow: 0 3px 12px rgba(56, 189, 248, 0.28);
+      transition: transform 0.15s;
+    }
+    .listen-drill-launch-btn:active {
+      transform: scale(0.97);
     }
     .tl-live-dot {
       width: 6px;
@@ -820,7 +892,7 @@
 
     <!-- 100% Offline PWA Indicator -->
     <div class="offline-tag">
-      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.4.1 PRO
+      <span class="offline-dot"></span> 100% Offline PWA • <b>DEAN OPTIMIZE</b> • v3.6.0 PRO
     </div>
 
     <!-- Main Game Canvas -->
@@ -832,10 +904,16 @@
       <div class="game-logo">CYBERBIRD LINGO</div>
       <div class="game-subtitle">Phản xạ Từ Vựng, Hội Thoại Thực Chiến & Nhật Ký Công Việc Hằng Ngày Tự Động!</div>
       
-      <!-- Main Game Mode Tabs (3 Pillars) -->
+      <!-- Main Game Mode Tabs (3 Pillars + Industrial Lab & 7QC Mastery) -->
       <div class="mode-tabs">
         <button id="tab-timeline" class="mode-tab-btn active" onclick="selectPlayMode('timeline')">
           <span class="tl-live-dot"></span> 📅 Nhật Ký Ngày
+        </button>
+        <button id="tab-lab7qc" class="mode-tab-btn lab7qc-tab-btn" onclick="selectPlayMode('lab7qc')">
+          🏭 Lab &amp; Dây Chuyền (6)
+        </button>
+        <button id="tab-listen" class="mode-tab-btn listen-tab-btn v34-no-flap" onclick="window.openAudioListeningDojoModal && window.openAudioListeningDojoModal()">
+          🎧 Luyện Nghe Xưởng
         </button>
         <button id="tab-dialogue" class="mode-tab-btn" onclick="selectPlayMode('dialogue')">
           💬 Hội Thoại
@@ -856,15 +934,43 @@
           <button class="cat-pill tl-mix-pill active" onclick="setTimelineMix('all', this)">🔥 Trộn Từ & Câu</button>
           <button class="cat-pill tl-mix-pill" onclick="setTimelineMix('vocab', this)">🎯 Chỉ Từ Nhật Ký</button>
           <button class="cat-pill tl-mix-pill" onclick="setTimelineMix('dialogue', this)">💬 Chỉ Câu Thực Chiến</button>
+          <button class="cat-pill tl-mix-pill lab7qc-accent-pill" onclick="setTimelineMix('lab7qc', this)">🏭 Lab &amp; 7QC Thực Chiến</button>
         </div>
         <div id="timeline-summary-card" class="timeline-digest">
           📌 Đang nạp tóm tắt nhật ký thao tác & giao tiếp trong ngày...
         </div>
       </div>
 
+      <!-- End-to-End Helmet Production Line (6 Modules: Lab, Robot, 7QC/8D, Paint/Decal/EPS, Assembly/Export Cont) -->
+      <div id="lab7qc-panel" class="timeline-panel hidden" style="border-color:rgba(250,204,21,0.52);box-shadow:0 4px 18px rgba(245,158,11,0.16);">
+        <div class="timeline-header" style="color:#fde047;">
+          <span>🏭 DÂY CHUYỀN MŨ KHÉP KÍN • LAB • SƠN • CONT</span>
+          <span id="lab7qc-count-badge" style="color:#34d399;">84 từ • 26 câu</span>
+        </div>
+        <div id="lab7qc-module-pills" class="category-bar" style="margin-bottom:5px;">
+          <button class="cat-pill lab7qc-mod-pill active" onclick="selectLab7qcModule('all', this)">🌟 Tất Cả (110)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m1_helmet_lab', this)">🪖 M1: Lab Mũ (18)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m2_robot_molding', this)">🤖 M2: Robot Ép (16)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m3_7qc_8d', this)">📊 M3: 7QC &amp; 8D (16)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m4_floor_dialogues', this)">🗣️ M4: Hội Thoại (26)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m5_paint_decal_eps', this)">🎨 M5: Sơn, Tem &amp; EPS (23)</button>
+          <button class="cat-pill lab7qc-mod-pill" onclick="selectLab7qcModule('m6_assembly_export_cont', this)">📦 M6: Lắp Ráp &amp; Cont (21)</button>
+        </div>
+        <div id="lab7qc-summary-card" class="timeline-digest" style="border-left-color:#fde047;">
+          📌 Đang nạp 6 Mô-đun Dây Chuyền Mũ Bảo Hiểm Khép Kín (110 mục Tứ ngữ: Lab 20N–50N, Robot Ép, 7QC/8D, Sơn Tự Động/Ford Cup #4/Tem Nước &lt;=1.0mm/EPS, Lắp Ráp/ISTA-1A/Xuất Cont 40'HC–45'HC)...
+        </div>
+        <button type="button" class="listen-drill-launch-btn v34-no-flap" onclick="window.openAudioListeningDojoModal && window.openAudioListeningDojoModal()">
+          🎧 ĐẤU TRƯỜNG LUYỆN NGHE PHẢN XẠ XƯỞNG (Nghe Mù CN/EN • 0.75x/1.0x) ➜
+        </button>
+        <button type="button" class="lab7qc-drill-launch-btn v34-no-flap" onclick="window.openLabQuizDrillsModal && window.openLabQuizDrillsModal()">
+          🧪 ĐẤU TRƯỜNG TRẮC NGHIỆM LAB &amp; 7QC (Quiz 4 Đáp Án • 6 Mô-đun) ➜
+        </button>
+      </div>
+
       <!-- Category Selector for Dialogue Mode -->
       <div id="dialogue-category-bar" class="category-bar hidden">
-        <button class="cat-pill dlg-pill active" onclick="switchDialogueTopic('all', this)">🌟 Tất Cả (31+)</button>
+        <button class="cat-pill dlg-pill active" onclick="switchDialogueTopic('all', this)">🌟 Tất Cả (57+)</button>
+        <button class="cat-pill dlg-pill lab7qc-accent-pill" onclick="switchDialogueTopic('lab7qc', this)">🏭 Lab &amp; Dây Chuyền (26)</button>
         <button class="cat-pill dlg-pill" onclick="switchDialogueTopic('factory', this)">🏭 Xưởng & QC</button>
         <button class="cat-pill dlg-pill" onclick="switchDialogueTopic('tech', this)">⚡ Điện & IT</button>
         <button class="cat-pill dlg-pill" onclick="switchDialogueTopic('office', this)">💼 Thương Mại</button>
@@ -873,6 +979,7 @@
 
       <!-- Category Selector for Vocab Mode -->
       <div id="vocab-category-bar" class="category-bar hidden">
+        <button class="cat-pill lab7qc-accent-pill" onclick="switchCategory('lab7qc', this)">🏭 Lab &amp; Dây Chuyền (84)</button>
         <button class="cat-pill active" onclick="switchCategory('factory', this)">🏭 Xưởng Mũ (27)</button>
         <button class="cat-pill" onclick="switchCategory('electronics', this)">⚡ Điện & TĐH (60)</button>
         <button class="cat-pill" onclick="switchCategory('office', this)">💼 Văn Phòng (15)</button>
@@ -880,12 +987,13 @@
         <button class="cat-pill" onclick="switchCategory('social', this)">🗣️ Giao Tiếp (16)</button>
         <button class="cat-pill" onclick="switchCategory('food', this)">☕ Ẩm Thực (12)</button>
         <button class="cat-pill" onclick="switchCategory('animal', this)">🐱 Động Vật (6)</button>
-        <button class="cat-pill" onclick="switchCategory('all', this)">🌟 Tất Cả (165+)</button>
+        <button class="cat-pill" onclick="switchCategory('all', this)">🌟 Tất Cả (250+)</button>
       </div>
 
       <!-- Ecosystem Quick-Switch Hub (Above-the-Fold: Nhà Máy EON G179 + Arcade Top 12) -->
       <div id="v34-start-hub" class="v34-hub-strip v34-no-flap" style="width:100%;max-width:348px;display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:2px 0 6px;">
-        <a class="v34-hub-chip eon-factory-link" href="https://truongduc164.github.io/factory-eon/" style="grid-column:span 2;padding:8px 10px;border-radius:11px;border:1.5px solid #34d399;background:linear-gradient(135deg,rgba(5,150,105,0.42),rgba(15,23,42,0.96));color:#fde047;font-size:12px;font-weight:900;text-decoration:none;text-align:center;">🏭 VÀO GAME NHÀ MÁY EON (G179 • 17 Khu QA/QC) ➜</a>
+        <a class="v34-hub-chip eon-factory-link" href="./factory-eon.html" style="padding:8px 10px;border-radius:11px;border:1.5px solid #34d399;background:linear-gradient(135deg,rgba(5,150,105,0.42),rgba(15,23,42,0.96));color:#fde047;font-size:12px;font-weight:900;text-decoration:none;text-align:center;">🏭 NHÀ MÁY EON (G179) ➜</a>
+        <a class="v34-hub-chip" href="./factory-runner.html" style="padding:8px 10px;border-radius:11px;border:1.5px solid #38bdf8;background:linear-gradient(135deg,rgba(2,132,199,0.42),rgba(15,23,42,0.96));color:#38bdf8;font-size:12px;font-weight:900;text-decoration:none;text-align:center;">⚡ FACTORY RUNNER 3D ➜</a>
       </div>
 
       <!-- Primary Above-the-Fold Play Button (1-Tap Instant Entry on All Phone Screens!) -->
@@ -940,7 +1048,7 @@
 
       <div class="dev-credits">
         <span>Kiến tạo & Tối ưu bởi <b>DEAN OPTIMIZE</b></span>
-        <span class="ver-badge">v3.4.1 PRO • AI CLOUD OTA</span>
+        <span class="ver-badge">v3.6.0 PRO • AI CLOUD OTA</span>
       </div>
 
       <div id="how-to-box" class="how-to-box">
@@ -1032,16 +1140,18 @@
 
       <div style="display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 320px; align-items: center; margin-top: 6px;">
         <button class="play-btn" style="width: 100%;" onclick="startGame()">CHƠI LẠI NGAY ⚡</button>
+        <button class="listen-drill-launch-btn v34-no-flap" style="margin-top:0;padding:10px;" onclick="window.openAudioListeningDojoModal && window.openAudioListeningDojoModal()">🎧 LUYỆN NGHE PHẢN XẠ XƯỞNG (MÙ CHỮ) ➜</button>
         <button class="menu-btn" style="width: 100%;" onclick="returnToMenu()">🏠 ĐỔI CHẾ ĐỘ & CHỦ ĐỀ</button>
         <a href="https://truongduc164.github.io/factory-eon/" style="width: 100%; padding: 11px 0; background: linear-gradient(135deg, #059669, #10b981); color: #fff; font-size: 13.5px; font-weight: 800; border-radius: 12px; text-decoration: none; text-align: center; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35); box-sizing: border-box;">🏭 ĐỔI GIÓ: GAME NHÀ MÁY EON ➜</a>
       </div>
       <div style="font-size: 11px; color: #64748b; margin-top: 12px;">
-        CyberBird Lingo v3.4.1 PRO • Engine Architecture by <b>DEAN OPTIMIZE</b>
+        CyberBird Lingo v3.6.0 PRO • Engine Architecture by <b>DEAN OPTIMIZE</b>
       </div>
     </div>
   </div>
 
   <script src="daily_timeline_data.js"></script>
+  <script src="lab_7qc_mastery_data.js?v=3.6.0"></script>
   <script>
     // Polyfill CanvasRenderingContext2D.roundRect for older iOS Safari (< 16) & Android WebViews
     if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
@@ -1590,11 +1700,32 @@
       }
     ];
 
-    let currentPlayMode = "timeline"; // 'timeline', 'dialogue', or 'vocab'
+    // Hydrate Industrial Factory 7QC & Helmet Testing Lab Mastery Expansion (66 Quadrilingual Items)
+    (function hydrateLab7qcExpansion() {
+      const exp = window.CYBERBIRD_LAB7QC_EXPANSION;
+      if (!exp) return;
+      const existingZh = new Set(FULL_VOCAB_DATABASE.map(v => v.zh));
+      for (const v of (exp.vocab || [])) {
+        if (v && v.zh && !existingZh.has(v.zh)) {
+          existingZh.add(v.zh);
+          FULL_VOCAB_DATABASE.push(v);
+        }
+      }
+      const existingQ = new Set(FACTORY_DIALOGUES.map(d => d.q_zh));
+      for (const d of (exp.dialogues || [])) {
+        if (d && d.q_zh && !existingQ.has(d.q_zh)) {
+          existingQ.add(d.q_zh);
+          FACTORY_DIALOGUES.push(d);
+        }
+      }
+    })();
+
+    let currentPlayMode = "timeline"; // 'timeline', 'lab7qc', 'dialogue', or 'vocab'
     let currentCategory = "daily";
     let currentDialogueTopic = "all";
     let selectedTimelineDate = "latest";
-    let selectedTimelineMix = "all"; // 'all', 'vocab', 'dialogue'
+    let selectedTimelineMix = "all"; // 'all', 'vocab', 'dialogue', 'lab7qc'
+    let selectedLab7qcModule = "all"; // 'all', 'm1_helmet_lab', 'm2_robot_molding', 'm3_7qc_8d', 'm4_floor_dialogues'
     let currentDifficulty = "normal"; // 'easy', 'normal', 'hard'
     let currentVoiceSpeed = 1.0;
     let currentFontSizeMode = 'large'; // 'norm', 'large', 'huge'
@@ -1605,7 +1736,7 @@
       return Boolean(q && q.q_zh);
     }
 
-    const OFFLINE_VAULT_CACHE = 'cyberbird-lingo-v3.4-ai-cloud-ota';
+    const OFFLINE_VAULT_CACHE = 'cyberbird-lingo-v3.6.0-paint-export-listen';
     let offlineVaultSyncing = false;
     let offlineVaultReadyCount = 0;
 
@@ -1808,7 +1939,14 @@
         }
       }
 
-      if (selectedTimelineMix === 'vocab') {
+      if (selectedTimelineMix === 'lab7qc') {
+        const exp = window.CYBERBIRD_LAB7QC_EXPANSION || { vocab: [], dialogues: [] };
+        const lv = exp.vocab || [];
+        const ld = exp.dialogues || [];
+        activeVocabList = [...ld, ...ld, ...lv];
+        vPool = lv;
+        dPool = ld;
+      } else if (selectedTimelineMix === 'vocab') {
         activeVocabList = vPool.length > 0 ? vPool : dPool;
       } else if (selectedTimelineMix === 'dialogue') {
         activeVocabList = dPool.length > 0 ? dPool : vPool;
@@ -1893,6 +2031,54 @@
       rebuildTimelinePool();
     }
 
+    function rebuildLab7qcPool() {
+      const exp = window.CYBERBIRD_LAB7QC_EXPANSION || { modules: [], vocab: [], dialogues: [] };
+      const allV = exp.vocab || FULL_VOCAB_DATABASE.filter(v => v.cat === 'lab7qc');
+      const allD = exp.dialogues || FACTORY_DIALOGUES.filter(d => d.cat === 'lab7qc');
+      const countEl = document.getElementById('lab7qc-count-badge');
+      const sumEl = document.getElementById('lab7qc-summary-card');
+
+      let vPool = [];
+      let dPool = [];
+      let modMeta = null;
+
+      if (selectedLab7qcModule === 'all') {
+        vPool = [...allV];
+        dPool = [...allD];
+        activeVocabList = [...dPool, ...dPool, ...vPool];
+      } else if (selectedLab7qcModule === 'm4_floor_dialogues') {
+        dPool = [...allD];
+        activeVocabList = [...dPool];
+        modMeta = (exp.modules || []).find(m => m.id === 'm4_floor_dialogues');
+      } else {
+        vPool = allV.filter(v => v.module === selectedLab7qcModule);
+        dPool = allD.filter(d => d.module === selectedLab7qcModule);
+        activeVocabList = dPool.length > 0 ? [...dPool, ...dPool, ...vPool] : [...vPool];
+        modMeta = (exp.modules || []).find(m => m.id === selectedLab7qcModule);
+      }
+
+      if (activeVocabList.length === 0) activeVocabList = [...allD, ...allV];
+      if (countEl) countEl.textContent = `${vPool.length} từ • ${dPool.length} câu`;
+      if (sumEl) {
+        if (modMeta) {
+          sumEl.innerHTML = `<div class="tl-topic-head" style="color:#fde047;">🏭 ${modMeta.topic_title}</div>` +
+            `<div>${modMeta.summary}</div>` +
+            `<div class="tl-tip-line">${modMeta.learning_tip}</div>`;
+        } else {
+          sumEl.innerHTML = `<div class="tl-topic-head" style="color:#fde047;">🌟 Trọn Bộ 6 Mô-đun Dây Chuyền Mũ Bảo Hiểm Khép Kín (110 Mục Tứ Ngữ)</div>` +
+            `<div>Khép kín từ <b>Lab Test Mũ 20N–50N (CPSC/EN1078/GB24429/MIPS)</b> ➔ <b>Robot Ép Phun</b> ➔ <b>7QC &amp; 8D CAPA</b> ➔ <b>Sơn Tự Động (Ford Cup #4, 橘皮/尘点, UV, Tem Nước &lt;=1.0mm, EPS)</b> ➔ <b>Lắp Ráp (5,000 chu kỳ, ISTA-1A) &amp; Xuất Cont 40'HC/45'HC (96% CBM, Chì Seal)</b>.</div>` +
+            `<div class="tl-tip-line">💡 Bấm <b>🎧 Đấu Trường Luyện Nghe Phản Xạ Xưởng</b> bên dưới để luyện nghe mù CN/EN (0.75x / 1.0x) bắt thông số kỹ thuật!</div>`;
+        }
+      }
+    }
+
+    function selectLab7qcModule(modId, btn) {
+      selectedLab7qcModule = modId;
+      document.querySelectorAll('.lab7qc-mod-pill').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      rebuildLab7qcPool();
+    }
+
     const offlineBlobMap = new Map();
     const offlineSizeMap = new Map();
     let offlineVaultBytes = 0;
@@ -1948,19 +2134,25 @@
         ]);
         for (const v of FULL_VOCAB_DATABASE) {
           if (v && v.audio) urls.add(v.audio);
+          if (v && v.audio_en) urls.add(v.audio_en);
         }
         for (const d of FACTORY_DIALOGUES) {
           if (d && d.q_audio) urls.add(d.q_audio);
           if (d && d.a_audio) urls.add(d.a_audio);
+          if (d && d.q_audio_en) urls.add(d.q_audio_en);
+          if (d && d.a_audio_en) urls.add(d.a_audio_en);
         }
         const tl = getTimelineData();
         for (const day of (tl.days || [])) {
           for (const v of (day.vocab || [])) {
             if (v && v.audio) urls.add(v.audio);
+            if (v && v.audio_en) urls.add(v.audio_en);
           }
           for (const dlg of (day.dialogues || [])) {
             if (dlg && dlg.q_audio) urls.add(dlg.q_audio);
             if (dlg && dlg.a_audio) urls.add(dlg.a_audio);
+            if (dlg && dlg.q_audio_en) urls.add(dlg.q_audio_en);
+            if (dlg && dlg.a_audio_en) urls.add(dlg.a_audio_en);
           }
         }
 
@@ -2071,9 +2263,23 @@
       currentDialogueTopic = topic;
       document.querySelectorAll('.dlg-pill').forEach(b => b.classList.remove('active'));
       if (btn) btn.classList.add('active');
-      const allDlgs = [...getAllDailyDialogues(), ...FACTORY_DIALOGUES];
-      if (topic === 'factory') {
-        activeVocabList = allDlgs.filter(d => (typeof d.id === 'string' && d.id.startsWith('daily_')) || (d.id >= 1 && d.id <= 13));
+      else {
+        const found = document.querySelector(`.dlg-pill[onclick*="'${topic}'"]`);
+        if (found) found.classList.add('active');
+      }
+      const rawDlgs = [...FACTORY_DIALOGUES, ...getAllDailyDialogues()];
+      const seenQ = new Set();
+      const allDlgs = [];
+      for (const d of rawDlgs) {
+        if (d && d.q_zh && !seenQ.has(d.q_zh)) {
+          seenQ.add(d.q_zh);
+          allDlgs.push(d);
+        }
+      }
+      if (topic === 'lab7qc') {
+        activeVocabList = allDlgs.filter(d => d.cat === 'lab7qc' || (typeof d.id === 'string' && d.id.startsWith('lab7qc_')) || (d.id >= 26 && d.id <= 51));
+      } else if (topic === 'factory') {
+        activeVocabList = allDlgs.filter(d => d.cat === 'lab7qc' || (typeof d.id === 'string' && d.id.startsWith('daily_')) || (d.id >= 1 && d.id <= 13));
       } else if (topic === 'tech') {
         activeVocabList = allDlgs.filter(d => [14, 15, 19, 20, 21].includes(d.id));
       } else if (topic === 'office') {
@@ -2093,11 +2299,13 @@
       if (activeBtn) activeBtn.classList.add('active');
 
       const tlPanel = document.getElementById('timeline-panel');
+      const labPanel = document.getElementById('lab7qc-panel');
       const dlgBar = document.getElementById('dialogue-category-bar');
       const vocabBar = document.getElementById('vocab-category-bar');
       const howToText = document.getElementById('how-to-text');
 
       if (tlPanel) tlPanel.classList.toggle('hidden', mode !== 'timeline');
+      if (labPanel) labPanel.classList.toggle('hidden', mode !== 'lab7qc');
       if (dlgBar) dlgBar.classList.toggle('hidden', mode !== 'dialogue');
       if (vocabBar) vocabBar.classList.toggle('hidden', mode !== 'vocab');
 
@@ -2109,6 +2317,15 @@
             🕹️ <b>Quy tắc Nhật Ký Ngày (Timeline):</b><br>
             1. <b>Silent Watchdog</b> tự tóm tắt nhật ký WeChat, Zalo, tủ điện & file Share mỗi ngày.<br>
             2. Bay xuyên qua chính những từ vựng & câu thực chiến bạn vừa đụng thực tế để nhớ cực dai!
+          `;
+        }
+      } else if (mode === 'lab7qc') {
+        rebuildLab7qcPool();
+        if (howToText) {
+          howToText.innerHTML = `
+            🏭 <b>Quy tắc 6 Mô-đun Dây Chuyền Mũ &amp; Luyện Nghe Phản Xạ:</b><br>
+            1. Chọn 1 trong <b>6 Mô-đun (110 mục)</b> từ Lab Test 20N–50N, Robot Ép, 7QC/8D, Sơn/Tem Nước/EPS đến Đóng Gói Xuất Cont 45'HC.<br>
+            2. Mở <b>🎧 Đấu Trường Luyện Nghe Mù</b> để nghe âm thanh ẩn chữ bắt thông số, hoặc <b>🚀 BẮT ĐẦU BAY NGAY</b>!
           `;
         }
       } else if (mode === 'vocab') {
@@ -2371,17 +2588,19 @@
       }
     }
 
-    // Studio Neural Edge Audio Player with Offline Vault + Web Speech fallback
+    // Studio Neural Edge Audio Player with Offline Vault + Dual Voice (Xiaoxiao zh-CN & Aria en-US)
     function playWordAudio(q, onEnd) {
       if (!soundEngine.sfxEnabled || !q) {
         if (onEnd) onEnd();
         return;
       }
-      if (q.audio) {
+      if (currentMode === 'en' && q.audio_en) {
+        playSmartAudioPath(q.audio_en, q.en || q.zh, onEnd);
+      } else if (q.audio) {
         playSmartAudioPath(q.audio, q.zh, onEnd);
       } else {
         stopCurrentVoice();
-        speakText(q.zh, 'zh-CN');
+        speakText(currentMode === 'en' ? (q.en || q.zh) : q.zh, currentMode === 'en' ? 'en-US' : 'zh-CN');
         if (onEnd) setTimeout(onEnd, 600);
       }
     }
@@ -2521,6 +2740,7 @@
 
     window.addEventListener('keydown', (e) => { 
       if (e.code === 'Space') { 
+        if (document.querySelector('#v36-listen-dojo-modal, #v35-lab-quiz-modal, #v34-radical-modal, #modal-tutorial:not(.hidden)')) return;
         e.preventDefault(); 
         if (gameState === 'ready') startGame();
         else if (gameState === 'over') startGame();
@@ -2738,7 +2958,7 @@
     function replayPronunciation() {
       if (!lastWrongQuestion) return;
       if (isDialogueItem(lastWrongQuestion)) {
-        playDialogueAudio(lastWrongQuestion.a_audio);
+        playDialogueAudio((currentMode === 'en' && lastWrongQuestion.a_audio_en) ? lastWrongQuestion.a_audio_en : lastWrongQuestion.a_audio);
       } else {
         playWordAudio(lastWrongQuestion);
       }
@@ -3169,7 +3389,7 @@
     refreshDailyTimelineLive();
     requestAnimationFrame(loop);
   </script>
-  <script src="radical_db_v42.js?v=3.4.1"></script>
-  <script src="cyberbird_upgrade_v34.js?v=3.4.1"></script>
+  <script src="radical_db_v42.js?v=3.6.0"></script>
+  <script src="cyberbird_upgrade_v34.js?v=3.6.0"></script>
 </body>
 </html>
