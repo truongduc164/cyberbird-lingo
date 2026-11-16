@@ -2438,8 +2438,11 @@
     const mistakesCnt = getMistakeList().length;
 
     hub.innerHTML = `
-      <a class="v34-hub-chip eon-factory-link" href="https://truongduc164.github.io/factory-eon/">
-        🏭 VÀO GAME NHÀ MÁY EON (G179 • 17 Khu QA/QC) ➜
+      <a class="v34-hub-chip" style="border-color:#34d399;background:linear-gradient(135deg,rgba(5,150,105,0.42),rgba(15,23,42,0.96));color:#fde047;" href="./factory-eon.html">
+        🏭 Nhà Máy EON (G179) ➜
+      </a>
+      <a class="v34-hub-chip" style="border-color:#38bdf8;background:linear-gradient(135deg,rgba(2,132,199,0.42),rgba(15,23,42,0.96));color:#38bdf8;" href="./factory-runner.html">
+        ⚡ Factory Runner 3D ➜
       </a>
       <button class="v34-hub-chip" style="grid-column:span 2;border-color:#38bdf8;background:linear-gradient(135deg,rgba(2,132,199,0.38),rgba(16,185,129,0.32));color:#e0f2fe;font-size:11.5px;padding:8px 10px;box-shadow:0 3px 12px rgba(56,189,248,0.28);" onclick="window.openAudioListeningDojoModal()">
         🎧 ĐẤU TRƯỜNG LUYỆN NGHE PHẢN XẠ XƯỞNG (Nghe Mù CN/EN • 0.75x/1.0x) ➜

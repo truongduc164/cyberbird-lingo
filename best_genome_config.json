@@ -1,0 +1,53 @@
+{
+  "_version": "1.0.0",
+  "_generated_at": "2026-11-16T00:45:50.188Z",
+  "_generator": "CyberBird Genome Evaluator v1.0",
+  "_description": "Bộ tham số tối ưu cho Boss Battle lộ trình học chuẩn mũ bảo hiểm quốc tế",
+  "genome": {
+    "quiz_order": [
+      10,
+      7,
+      12,
+      2,
+      1,
+      5,
+      8,
+      11,
+      4,
+      6,
+      9,
+      3
+    ],
+    "difficulty_curve": "exponential",
+    "time_pressure": 0.5,
+    "hint_frequency": 0.46,
+    "retry_penalty": 0.11,
+    "spaced_interval_modifier": 1.13
+  },
+  "meta": {
+    "fitness": 93.69,
+    "generations": 200,
+    "population_size": 50,
+    "elapsed_seconds": 0.13,
+    "final_generation_history": [
+      {
+        "generation": 198,
+        "bestFitness": 79.24,
+        "avgFitness": 63.24,
+        "worstFitness": 47.5
+      },
+      {
+        "generation": 199,
+        "bestFitness": 77.84,
+        "avgFitness": 61.4,
+        "worstFitness": 45.62
+      },
+      {
+        "generation": 200,
+        "bestFitness": 79.38,
+        "avgFitness": 62.95,
+        "worstFitness": 49.35
+      }
+    ]
+  }
+}

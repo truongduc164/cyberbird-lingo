@@ -1,7 +1,10 @@
-const CACHE_NAME = 'cyberbird-lingo-v3.6.1-helmet-boss';
+const CACHE_PREFIX = 'cyberbird-lingo-';
+const CACHE_NAME = CACHE_PREFIX + 'v3.6.2-ecosystem';
 const CORE_ASSETS = [
   './',
   './index.html',
+  './factory-eon.html',
+  './factory-runner.html',
   './manifest.json',
   './daily_timeline_data.js',
   './lab_7qc_mastery_data.js',
@@ -28,7 +31,7 @@ self.addEventListener('activate', (e) => {
     caches.keys().then((keys) => {
       return Promise.all(
         keys.map((key) => {
-          if (key !== CACHE_NAME) return caches.delete(key);
+          if (key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME) return caches.delete(key);
         })
       );
     }).then(() => self.clients.claim())
@@ -111,6 +114,8 @@ self.addEventListener('fetch', (e) => {
   const isDynamicDoc =
     e.request.mode === 'navigate' ||
     url.includes('index.html') ||
+    url.includes('factory-eon.html') ||
+    url.includes('factory-runner.html') ||
     url.includes('cyberbird_upgrade_v34.js') ||
     url.includes('srs_helmet_standards_boss.js') ||
     url.includes('lab_7qc_mastery_data.js') ||
